@@ -1,0 +1,10 @@
+import Foundation
+import Bugsnag
+
+enum Config {
+  static let BUGSNAG_API_KEY = ""
+
+  static func load() {
+    Bugsnag.start(withApiKey: BUGSNAG_API_KEY)
+  }
+}

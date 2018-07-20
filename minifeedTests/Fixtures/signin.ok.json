@@ -1,0 +1,7 @@
+{
+  "current_user": {
+    "id": "current_user_id",
+    "email": "user@example.org",
+    "auth_token": "my_auth_token"
+  }
+}

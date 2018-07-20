@@ -1,0 +1,14 @@
+"alert.ok"      = "OK";
+"alert.cancel"  = "Cancel";
+"alert.confirm" = "Confirm";
+
+"entry_filter_types.all"     = "All";
+"entry_filter_types.unread"  = "Unread";
+"entry_filter_types.starred" = "Starred";
+
+"signout.confirm" = "Do you really want to sign out ?";
+
+"signin.url"      = "URL";
+"signin.email"    = "Email";
+"signin.password" = "Password";
+"signin.submit"   = "Sign in";
