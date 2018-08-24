@@ -357,6 +357,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="ubb-jI-3C7">
                         <nil key="title"/>
+                        <barButtonItem key="backBarButtonItem" title=" " id="MEu-Vh-fZG"/>
                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="Bmb-jU-Ips">
                             <rect key="frame" x="96.5" y="7" width="182" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
