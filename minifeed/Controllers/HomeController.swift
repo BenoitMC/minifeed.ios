@@ -123,8 +123,8 @@ class NavItemCell : UITableViewCell {
   }
 
   func setup(_ item: Nav.SpecialCategory) {
-    if item.type == .unread  { icon.image = UIImage.find("list") }
-    if item.type == .starred { icon.image = UIImage.find("starred") }
+    if item.type == .unread  { icon.image = UIImage.find("list-all") }
+    if item.type == .starred { icon.image = UIImage.find("list-starred") }
 
     setup(item.name, item.counter)
   }
