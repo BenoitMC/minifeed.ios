@@ -15,7 +15,7 @@ class ApiRequest {
   var encoding : ParameterEncoding
   var headers  : Headers
 
-  init(
+  required init(
     _ method   : HTTPMethod,
     _ path     : String,
     _ params   : Params? = nil,

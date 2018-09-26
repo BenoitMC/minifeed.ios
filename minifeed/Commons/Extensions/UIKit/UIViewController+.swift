@@ -71,11 +71,11 @@ extension UIViewController {
   }
 
   func hideStatusBar() {
-    UIApplication.shared.keyWindow!.windowLevel = UIWindowLevelStatusBar
+    UIApplication.shared.keyWindow!.windowLevel = UIWindow.Level.statusBar
   }
 
   func showStatusBar() {
-    UIApplication.shared.keyWindow!.windowLevel = UIWindowLevelNormal
+    UIApplication.shared.keyWindow!.windowLevel = UIWindow.Level.normal
   }
 
   func instantiate<T:UIViewController>(_ type: T.Type) -> T {

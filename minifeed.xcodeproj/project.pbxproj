@@ -16,7 +16,6 @@
 		140C720420BDA5290042FA9B /* EntriesRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140C720320BDA5290042FA9B /* EntriesRepositoryTests.swift */; };
 		140C720620BDB8EF0042FA9B /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140C720520BDB8EF0042FA9B /* String+.swift */; };
 		141FFEC6210218D7005A0FCD /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141FFEC5210218D7005A0FCD /* Config.swift */; };
-		141FFEC82102192E005A0FCD /* Config.swift.example in Sources */ = {isa = PBXBuildFile; fileRef = 141FFEC72102192E005A0FCD /* Config.swift.example */; };
 		142BD72920A8995600E5B9FC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142BD72820A8995600E5B9FC /* AppDelegate.swift */; };
 		142BD72E20A8995600E5B9FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 142BD72C20A8995600E5B9FC /* Main.storyboard */; };
 		142BD73020A8995700E5B9FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 142BD72F20A8995700E5B9FC /* Assets.xcassets */; };
@@ -487,13 +486,16 @@
 				TargetAttributes = {
 					142BD72420A8995600E5B9FC = {
 						CreatedOnToolsVersion = 9.3.1;
+						LastSwiftMigration = 1000;
 					};
 					142BD73820A8995800E5B9FC = {
 						CreatedOnToolsVersion = 9.3.1;
+						LastSwiftMigration = 1000;
 						TestTargetID = 142BD72420A8995600E5B9FC;
 					};
 					142BD74320A8995800E5B9FC = {
 						CreatedOnToolsVersion = 9.3.1;
+						LastSwiftMigration = 1000;
 						TestTargetID = 142BD72420A8995600E5B9FC;
 					};
 				};
@@ -671,7 +673,6 @@
 				144B9A5A20D2D941005CD665 /* Controller.swift in Sources */,
 				143EAA0120B1D0BC00E55DDF /* HomeController.swift in Sources */,
 				14D9931820A8CC29001F3913 /* MasterController.swift in Sources */,
-				141FFEC82102192E005A0FCD /* Config.swift.example in Sources */,
 				14A57D0220BC6716008BEF1C /* Feed.swift in Sources */,
 				14A57CFE20BC66E3008BEF1C /* _Model.swift in Sources */,
 				143E973C20C2945F00F63417 /* _Repository.swift in Sources */,
@@ -888,7 +889,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.agilidee.minifeed;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -910,7 +911,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.agilidee.minifeed;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -931,7 +932,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = benoitmc.minifeedTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/minifeed.app/minifeed";
 			};
@@ -953,7 +954,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = benoitmc.minifeedTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/minifeed.app/minifeed";
 			};
@@ -974,7 +975,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = benoitmc.minifeedUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = minifeed;
 			};
@@ -995,7 +996,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = benoitmc.minifeedUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = minifeed;
 			};

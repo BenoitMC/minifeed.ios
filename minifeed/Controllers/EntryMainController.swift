@@ -29,8 +29,8 @@ class EntryMainController : Controller {
     let controller = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
     controller.dataSource = self
     controller.delegate   = self
-    addChildViewController(controller)
-    controller.didMove(toParentViewController: self)
+    addChild(controller)
+    controller.didMove(toParent: self)
     return controller
   }()
 
