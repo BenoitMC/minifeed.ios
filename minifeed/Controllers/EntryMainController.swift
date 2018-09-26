@@ -100,12 +100,14 @@ class EntryMainController : Controller {
 
   @IBAction func tapOnPrevious() {
     pageController.goToPreviousPage() {
+      self.updateViews()
       self.markAsReadIfNeeded()
     }
   }
 
   @IBAction func tapOnNext() {
     pageController.goToNextPage() {
+      self.updateViews()
       self.markAsReadIfNeeded()
     }
   }
