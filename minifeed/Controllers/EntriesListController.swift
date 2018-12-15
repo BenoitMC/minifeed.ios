@@ -2,7 +2,8 @@ import Foundation
 import UIKit
 import SwifterSwift
 
-class EntriesListController: Controller, UITableViewDelegate, UITableViewDataSource {
+class EntriesListController: Controller, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
+  @IBOutlet weak var searchBar : UISearchBar!
   @IBOutlet weak var tableView : UITableView!
   @IBOutlet weak var types     : UISegmentedControl!
 
@@ -13,9 +14,20 @@ class EntriesListController: Controller, UITableViewDelegate, UITableViewDataSou
     tableView.dataSource = self
     tableView.delegate   = self
     tableView.addSubview(refreshControl)
+    searchBar.delegate = self
 
+    i18n()
+    hideSearchBar()
     updateViews()
     reloadData()
+  }
+
+  func i18n() {
+    searchBar.placeholder = t("entries_list.search.placeholder")
+  }
+
+  func hideSearchBar() {
+    tableView.contentOffset = CGPoint(x: 0.0, y: searchBar.height)
   }
 
   func updateViews() {
@@ -67,6 +79,25 @@ class EntriesListController: Controller, UITableViewDelegate, UITableViewDataSou
     controller.showEntryAtIndex(indexPath.row)
     controller.title = categoryName
     showSplitViewDetail(controller)
+  }
+
+  var searchTimer = Timer()
+
+  func searchBar(_: UISearchBar, textDidChange q: String) {
+    searchTimer.invalidate()
+
+    searchTimer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { [weak self] _ in
+      self?.repository.q = q
+      self?.reloadData()
+    }
+  }
+
+  func hideKeyboad() {
+    view.endEditing(true)
+  }
+
+  func scrollViewDidScroll(_: UIScrollView) {
+    hideKeyboad()
   }
 }
 

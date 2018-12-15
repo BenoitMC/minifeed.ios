@@ -26,13 +26,14 @@ class EntriesRepositoryTests : TestCase {
     testRequest { request in
       XCTAssertEqual(request.httpMethod, "GET")
       XCTAssertEqual(request.url!.relativePath, "/api/v1/entries")
-      XCTAssertEqual(request.url!.query, "category_id=cid&feed_id=fid&type=starred")
+      XCTAssertEqual(request.url!.query, "category_id=cid&feed_id=fid&q=search&type=starred")
     }
 
     let repository = EntriesRepository()
     repository.type       = .starred
     repository.categoryId = "cid"
     repository.feedId     = "fid"
+    repository.q          = "search"
 
     asyncExpectation { e in
       repository.onChange { e.fulfill() }.request().perform()

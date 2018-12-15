@@ -4,6 +4,7 @@ class EntriesRepository : Repository {
   var type       : EntryFilterTypes = .unread
   var categoryId : String?
   var feedId     : String?
+  var q          : String?
 
   var entries : [Entry] = []
 
@@ -12,6 +13,7 @@ class EntriesRepository : Repository {
       "type"        : type.rawValue,
       "category_id" : categoryId ?? "",
       "feed_id"     : feedId ?? "",
+      "q"           : q ?? "",
     ]
   }
 

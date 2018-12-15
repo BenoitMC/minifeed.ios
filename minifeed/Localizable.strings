@@ -6,6 +6,8 @@
 "entry_filter_types.unread"  = "Unread";
 "entry_filter_types.starred" = "Starred";
 
+"entries_list.search.placeholder" = "Search";
+
 "signout.confirm" = "Do you really want to sign out ?";
 
 "signin.url"      = "URL";
