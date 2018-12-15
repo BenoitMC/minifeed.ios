@@ -1,7 +1,7 @@
 PODS:
-  - Alamofire (4.7.3)
-  - Bugsnag (5.17.0)
-  - IQKeyboardManagerSwift (6.1.1)
+  - Alamofire (4.8.0)
+  - Bugsnag (5.17.2)
+  - IQKeyboardManagerSwift (6.2.0)
   - Mockingjay (2.0.1):
     - Mockingjay/Core (= 2.0.1)
     - Mockingjay/XCTest (= 2.0.1)
@@ -9,25 +9,25 @@ PODS:
     - URITemplate (~> 2.0)
   - Mockingjay/XCTest (2.0.1):
     - Mockingjay/Core
-  - SnapKit (4.0.1)
+  - SnapKit (4.2.0)
   - SVProgressHUD (2.2.5)
-  - SwifterSwift (4.5.0):
-    - SwifterSwift/AppKit (= 4.5.0)
-    - SwifterSwift/CoreGraphics (= 4.5.0)
-    - SwifterSwift/CoreLocation (= 4.5.0)
-    - SwifterSwift/Foundation (= 4.5.0)
-    - SwifterSwift/MapKit (= 4.5.0)
-    - SwifterSwift/SpriteKit (= 4.5.0)
-    - SwifterSwift/SwiftStdlib (= 4.5.0)
-    - SwifterSwift/UIKit (= 4.5.0)
-  - SwifterSwift/AppKit (4.5.0)
-  - SwifterSwift/CoreGraphics (4.5.0)
-  - SwifterSwift/CoreLocation (4.5.0)
-  - SwifterSwift/Foundation (4.5.0)
-  - SwifterSwift/MapKit (4.5.0)
-  - SwifterSwift/SpriteKit (4.5.0)
-  - SwifterSwift/SwiftStdlib (4.5.0)
-  - SwifterSwift/UIKit (4.5.0)
+  - SwifterSwift (4.6.0):
+    - SwifterSwift/AppKit (= 4.6.0)
+    - SwifterSwift/CoreGraphics (= 4.6.0)
+    - SwifterSwift/CoreLocation (= 4.6.0)
+    - SwifterSwift/Foundation (= 4.6.0)
+    - SwifterSwift/MapKit (= 4.6.0)
+    - SwifterSwift/SpriteKit (= 4.6.0)
+    - SwifterSwift/SwiftStdlib (= 4.6.0)
+    - SwifterSwift/UIKit (= 4.6.0)
+  - SwifterSwift/AppKit (4.6.0)
+  - SwifterSwift/CoreGraphics (4.6.0)
+  - SwifterSwift/CoreLocation (4.6.0)
+  - SwifterSwift/Foundation (4.6.0)
+  - SwifterSwift/MapKit (4.6.0)
+  - SwifterSwift/SpriteKit (4.6.0)
+  - SwifterSwift/SwiftStdlib (4.6.0)
+  - SwifterSwift/UIKit (4.6.0)
   - SwiftyJSON (4.2.0)
   - URITemplate (2.0.3)
 
@@ -54,13 +54,13 @@ SPEC REPOS:
     - URITemplate
 
 SPEC CHECKSUMS:
-  Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
-  Bugsnag: 9c904fdb98c8f4af3ee0c5235bb3b19cd23fa19b
-  IQKeyboardManagerSwift: 977affaeb4d6e971975c7790a6850f31d38f1207
+  Alamofire: 3ec537f71edc9804815215393ae2b1a8ea33a844
+  Bugsnag: f44353744bf11b23118efba6e695dd453c63c1b2
+  IQKeyboardManagerSwift: b07ccf9d8cafe993dcd6cb794eb4ba34611a0c4e
   Mockingjay: 11a621880d2887f1775bdcf824341eb68f218450
-  SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
+  SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
-  SwifterSwift: 45339f9100181f0ca1d9b46248e45d0879a48596
+  SwifterSwift: 812ffec6f301922f5430e75be3f2939ea3a80024
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
   URITemplate: ace0c4c46dcf8afe6e89b4060621852886b15c3b
 
