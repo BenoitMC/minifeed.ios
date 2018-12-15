@@ -33,51 +33,6 @@ extension UIViewController {
     dismiss(animated: animated, completion: nil)
   }
 
-  func dismissAfter(_ delay: Double) {
-    asyncAfter(delay) { self.dismiss() }
-  }
-
-  func asyncAfter(_ delay: Double, _ callback: @escaping ()->Void) {
-    DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
-      callback()
-    }
-  }
-
-  func async(_ callback: @escaping ()->Void) {
-    asyncAfter(0, callback)
-  }
-
-  func goBack(_ animated: Bool = true) {
-    navigationController!.popViewController(animated: animated)
-  }
-
-  func goBack(_ n: Int, _ animated: Bool = true) {
-    let controllers = navigationController!.viewControllers
-    var index = controllers.count - n - 1
-    if index < 0 { index = 0 }
-    navigationController!.popToViewController(controllers[index], animated: animated)
-  }
-
-  func goToRoot(_ animated: Bool = true) {
-    navigationController!.popToRootViewController(animated: animated)
-  }
-
-  func hideNav() {
-    navigationController!.isNavigationBarHidden = true
-  }
-
-  func showNav() {
-    navigationController!.isNavigationBarHidden = false
-  }
-
-  func hideStatusBar() {
-    UIApplication.shared.keyWindow!.windowLevel = UIWindow.Level.statusBar
-  }
-
-  func showStatusBar() {
-    UIApplication.shared.keyWindow!.windowLevel = UIWindow.Level.normal
-  }
-
   func instantiate<T:UIViewController>(_ type: T.Type) -> T {
     return storyboard!.instantiateViewController(withIdentifier: S(T.self)) as! T
   }
@@ -86,31 +41,16 @@ extension UIViewController {
     present(controller, animated: animated, completion: nil)
   }
 
-  func presentOverCurrentContext(_ controller: UIViewController, _ animated: Bool = true) {
-    controller.modalPresentationStyle = .overCurrentContext
-    present(controller, animated)
-  }
-
-  func performSegue(_ id: String) {
-    performSegue(withIdentifier: id, sender: self)
-  }
-
   func pushToNav(_ newController: UIViewController, _ animated: Bool = true) {
     navigationController!.pushViewController(newController, animated: animated)
   }
 
-  func setNavControllers(_ controllers: [UIViewController], _ animated: Bool = true) {
-    navigationController!.setViewControllers(controllers, animated: animated)
-  }
-
-  func replaceCurrentInNav(_ newController: UIViewController, _ animated: Bool = true) {
-    var controllers = navigationController!.viewControllers
-    controllers[controllers.count - 1] = newController
-    navigationController!.setViewControllers(controllers, animated: animated)
-  }
-
   func showSplitViewDetail(_ controller: UIViewController) {
     splitViewController!.showDetailViewController(controller, sender: self)
+  }
+
+  func hideKeyboad() {
+    view.endEditing(true)
   }
 }
 

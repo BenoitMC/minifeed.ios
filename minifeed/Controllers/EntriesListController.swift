@@ -92,10 +92,6 @@ class EntriesListController: Controller, UITableViewDelegate, UITableViewDataSou
     }
   }
 
-  func hideKeyboad() {
-    view.endEditing(true)
-  }
-
   func scrollViewDidScroll(_: UIScrollView) {
     hideKeyboad()
   }
