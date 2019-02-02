@@ -30,7 +30,7 @@ class MasterController : UISplitViewController {
     guard isSignedIn else { return }
 
     ApiRequest.baseUrl = Preferences.get("api_url")!
-    ApiRequest.defaultHeaders["X-Auth-Token"] = Preferences.get("auth_token")!
+    ApiRequest.defaultHeaders["Authorization"] = "Bearer " + Preferences.get("auth_token")!
   }
 
   func signout() {

@@ -31,7 +31,7 @@ class SigninController : Controller {
         Preferences.set("api_url", url)
         Preferences.set("auth_token", authToken)
         ApiRequest.baseUrl = url
-        ApiRequest.defaultHeaders["X-Auth-Token"] = authToken
+        ApiRequest.defaultHeaders["Authorization"] = "Bearer " + authToken
         HomeController.instance?.reloadDataSilently()
         Flash.success {
           self.dismiss()
