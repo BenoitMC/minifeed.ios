@@ -1,6 +1,6 @@
 PODS:
-  - Alamofire (4.8.0)
-  - Bugsnag (5.17.2)
+  - Alamofire (4.8.1)
+  - Bugsnag (5.17.3)
   - IQKeyboardManagerSwift (6.2.0)
   - Mockingjay (2.0.1):
     - Mockingjay/Core (= 2.0.1)
@@ -54,8 +54,8 @@ SPEC REPOS:
     - URITemplate
 
 SPEC CHECKSUMS:
-  Alamofire: 3ec537f71edc9804815215393ae2b1a8ea33a844
-  Bugsnag: f44353744bf11b23118efba6e695dd453c63c1b2
+  Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
+  Bugsnag: a56a5204ebd35e44e56c1f703824705b1d4b5b97
   IQKeyboardManagerSwift: b07ccf9d8cafe993dcd6cb794eb4ba34611a0c4e
   Mockingjay: 11a621880d2887f1775bdcf824341eb68f218450
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
