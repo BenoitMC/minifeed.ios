@@ -26,4 +26,8 @@ class UserSession {
       }
       .perform()
   }
+
+  static var isSignedIn: Bool {
+    return Preferences.get("auth_token") != nil
+  }
 }

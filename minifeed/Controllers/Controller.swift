@@ -6,7 +6,7 @@ class Controller : UIViewController {
 
 extension UIViewController {
   var isSignedIn : Bool {
-    return Preferences.get("api_url") != nil && Preferences.get("auth_token") != nil
+    return UserSession.isSignedIn
   }
 
   func showErrorIfNeeded(_ response: ApiResponse) {
