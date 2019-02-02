@@ -26,18 +26,20 @@ class SigninController : Controller {
 
     Flash.progress()
 
-    UserSession().signin(url, email, password) { authToken in
-      if let authToken = authToken {
+    UserSession().signin(url, email, password) { response in
+      switch response {
+      case .success(let token):
         Preferences.set("api_url", url)
-        Preferences.set("auth_token", authToken)
+        Preferences.set("auth_token", token)
         ApiRequest.baseUrl = url
-        ApiRequest.defaultHeaders["Authorization"] = "Bearer " + authToken
+        ApiRequest.defaultHeaders["Authorization"] = "Bearer " + token
         HomeController.instance?.reloadDataSilently()
         Flash.success {
           self.dismiss()
         }
-      } else {
-        Flash.error()
+
+      case .error(let message):
+        Flash.error(message)
       }
     }
   }

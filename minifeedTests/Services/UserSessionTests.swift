@@ -8,8 +8,8 @@ class UserSessionTests : TestCase {
     stubWithFixture("signin.ok")
 
     asyncExpectation { e in
-      UserSession().signin("https://example.org/", "", "") { authToken in
-        XCTAssertEqual(authToken, "my_auth_token")
+      UserSession().signin("https://example.org/", "", "") { response in
+        XCTAssertEqual(response, UserSession.Response.success(token: "my_auth_token"))
         e.fulfill()
       }
     }
@@ -19,8 +19,19 @@ class UserSessionTests : TestCase {
     stubWithFixture("signin.ko")
 
     asyncExpectation { e in
-      UserSession().signin("", "", "") { authToken in
-        XCTAssertNil(authToken)
+      UserSession().signin("https://example.org/", "", "") { response in
+        XCTAssertEqual(response, UserSession.Response.error(message: "Invalid email and/or password."))
+        e.fulfill()
+      }
+    }
+  }
+
+  func test_signin_invalid_url() {
+    stubWithFixture("signin.invalid")
+
+    asyncExpectation { e in
+      UserSession().signin("", "", "") { response in
+        XCTAssertEqual(response, UserSession.Response.error(message: "URL is invalid."))
         e.fulfill()
       }
     }
@@ -30,8 +41,8 @@ class UserSessionTests : TestCase {
     stubWithFixture("signin.invalid")
 
     asyncExpectation { e in
-      UserSession().signin("", "", "") { authToken in
-        XCTAssertNil(authToken)
+      UserSession().signin("https://example.org/", "", "") { response in
+        XCTAssertEqual(response, UserSession.Response.error(message: nil))
         e.fulfill()
       }
     }

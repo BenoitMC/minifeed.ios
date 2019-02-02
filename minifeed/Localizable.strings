@@ -10,7 +10,8 @@
 
 "signout.confirm" = "Do you really want to sign out ?";
 
-"signin.url"      = "URL";
-"signin.email"    = "Email";
-"signin.password" = "Password";
-"signin.submit"   = "Sign in";
+"signin.url"         = "URL";
+"signin.email"       = "Email";
+"signin.password"    = "Password";
+"signin.submit"      = "Sign in";
+"signin.invalid_url" = "URL is invalid.";
