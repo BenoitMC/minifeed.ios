@@ -370,6 +370,11 @@
                                 <action selector="onTypeChange" destination="bOd-dq-eLq" eventType="valueChanged" id="hAa-Q5-8ec"/>
                             </connections>
                         </segmentedControl>
+                        <barButtonItem key="rightBarButtonItem" image="mark-all-as-read" id="lvD-Ix-Zdl">
+                            <connections>
+                                <action selector="tapOnMarkAllAsRead:" destination="bOd-dq-eLq" id="Rld-6N-p3h"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="searchBar" destination="ivd-P8-3Hv" id="X00-Bz-Weh"/>
@@ -514,6 +519,7 @@
     </scenes>
     <resources>
         <image name="icon" width="150" height="150"/>
+        <image name="mark-all-as-read" width="30" height="30"/>
         <image name="next" width="30" height="30"/>
         <image name="previous" width="30" height="30"/>
         <image name="read" width="30" height="30"/>

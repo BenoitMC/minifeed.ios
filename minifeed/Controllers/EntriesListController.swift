@@ -19,6 +19,12 @@ class EntriesListController: Controller, UITableViewDelegate, UITableViewDataSou
     i18n()
     hideSearchBar()
     updateViews()
+
+    repository.onChange = { [weak self] in
+      self?.updateViews()
+      Flash.close()
+    }
+
     reloadData()
   }
 
@@ -40,10 +46,14 @@ class EntriesListController: Controller, UITableViewDelegate, UITableViewDataSou
   @objc func reloadData() {
     refreshControl.endRefreshing()
     Flash.progress()
-    repository.onChange { [weak self] in
-      self?.updateViews()
-      Flash.close()
-    }.request().onError(showErrorIfNeeded).perform()
+    repository.get().onError(showErrorIfNeeded).perform()
+  }
+
+  func markAllAsRead() {
+    Flash.progress()
+    repository.markAllAsRead().onError(showErrorIfNeeded).onSuccess { _ in
+      HomeController.instance?.reloadDataSilently()
+    }.perform()
   }
 
   lazy var refreshControl : UIRefreshControl = {
@@ -60,6 +70,12 @@ class EntriesListController: Controller, UITableViewDelegate, UITableViewDataSou
     if types.selectedSegmentIndex == 2 { repository.type = .starred }
 
     reloadData()
+  }
+
+  @IBAction func tapOnMarkAllAsRead(_ sender: Any) {
+    confirm(t("entries_list.mark_all_as_read.confirm")) { [weak self] in
+      self?.markAllAsRead()
+    }
   }
 
   func tableView(_: UITableView, numberOfRowsInSection section: Int) -> Int {

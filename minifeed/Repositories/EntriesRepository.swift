@@ -1,4 +1,5 @@
 import Foundation
+import Alamofire
 
 class EntriesRepository : Repository {
   var type       : EntryFilterTypes = .unread
@@ -17,8 +18,18 @@ class EntriesRepository : Repository {
     ]
   }
 
-  func request() -> ApiRequest {
-    return ApiRequest.get("/api/v1/entries", params).onSuccess {
+  func get() -> ApiRequest {
+    return commonRequest(.get, "/api/v1/entries")
+  }
+
+  func markAllAsRead() -> ApiRequest{
+    return commonRequest(.post, "/api/v1/entries/mark-all-as-read")
+  }
+
+  private
+
+  func commonRequest(_ method: HTTPMethod, _ url: String) -> ApiRequest {
+    return ApiRequest(method, url, params).onSuccess {
       self.entries = $0.json["entries"].arrayValue.map { Entry($0) }
       self.onChange?()
     }
