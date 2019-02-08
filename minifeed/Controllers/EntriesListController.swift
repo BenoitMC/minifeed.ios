@@ -37,6 +37,15 @@ class EntriesListController: Controller, UITableViewDelegate, UITableViewDataSou
   }
 
   func updateViews() {
+    if repository.entries.isEmpty {
+      let cell = tableView.dequeue(NoEntryCell.self)
+      cell.label.text = t("entries_list.empty")
+      cell.height = tableView.height - searchBar.height
+      tableView.tableFooterView = cell
+    } else {
+      tableView.tableFooterView = nil
+    }
+
     tableView.reloadData()
 
     types.segmentTitles = EntryFilterTypes.allCases.map { t("entry_filter_types.\($0.rawValue)") }
@@ -124,4 +133,8 @@ class EntryCell : UITableViewCell {
     label.text = entry.name
     infos.text = entry.infos
   }
+}
+
+class NoEntryCell : UITableViewCell {
+  @IBOutlet weak var label: UILabel!
 }
