@@ -12,7 +12,7 @@ class MasterController : UISplitViewController {
     super.viewDidAppear(animated)
 
     if !isSignedIn {
-      present(instantiate(SigninController.self))
+      present(SigninController())
     }
   }
 
@@ -35,6 +35,6 @@ class MasterController : UISplitViewController {
 
   func signout() {
     Preferences.clear()
-    present(instantiate(SigninController.self))
+    present(SigninController())
   }
 }

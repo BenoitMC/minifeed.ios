@@ -58,89 +58,6 @@
             </objects>
             <point key="canvasLocation" x="1745" y="265"/>
         </scene>
-        <!--Signin Controller-->
-        <scene sceneID="jpl-HZ-kKn">
-            <objects>
-                <viewController storyboardIdentifier="SigninController" id="RQa-Ko-Fq6" customClass="SigninController" customModule="minifeed" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="LlR-dH-8Vc">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="Cg0-aQ-Cw7">
-                                <rect key="frame" x="47.5" y="123.5" width="280" height="420"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon" translatesAutoresizingMaskIntoConstraints="NO" id="WYn-qN-nG9">
-                                        <rect key="frame" x="65" y="0.0" width="150" height="150"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="150" id="DCc-Du-TTU"/>
-                                            <constraint firstAttribute="width" secondItem="WYn-qN-nG9" secondAttribute="height" multiplier="1:1" id="oIw-dk-FdF"/>
-                                        </constraints>
-                                    </imageView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="WWV-tp-p6S">
-                                        <rect key="frame" x="0.0" y="200" width="280" height="220"/>
-                                        <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="rool url" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iW3-Ce-EIV">
-                                                <rect key="frame" x="0.0" y="0.0" width="280" height="40"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="40" id="5uQ-mN-p3D"/>
-                                                </constraints>
-                                                <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="URL" textContentType="url"/>
-                                            </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3cx-NY-UKQ">
-                                                <rect key="frame" x="0.0" y="60" width="280" height="40"/>
-                                                <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" textContentType="email"/>
-                                            </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="n8j-IX-kse">
-                                                <rect key="frame" x="0.0" y="120" width="280" height="40"/>
-                                                <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="alphabet" secureTextEntry="YES" textContentType="password"/>
-                                            </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EJ1-YI-nOK">
-                                                <rect key="frame" x="0.0" y="180" width="280" height="40"/>
-                                                <state key="normal" title="sign in">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="tapOnSubmit" destination="RQa-Ko-Fq6" eventType="touchUpInside" id="9JP-Qv-S3D"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstItem="3cx-NY-UKQ" firstAttribute="height" secondItem="iW3-Ce-EIV" secondAttribute="height" id="4bi-4d-x7g"/>
-                                            <constraint firstItem="EJ1-YI-nOK" firstAttribute="height" secondItem="iW3-Ce-EIV" secondAttribute="height" id="Bsy-jl-mMg"/>
-                                            <constraint firstItem="n8j-IX-kse" firstAttribute="height" secondItem="iW3-Ce-EIV" secondAttribute="height" id="UsA-hn-1FN"/>
-                                        </constraints>
-                                    </stackView>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="WWV-tp-p6S" firstAttribute="width" secondItem="Cg0-aQ-Cw7" secondAttribute="width" id="8YC-A3-v6D"/>
-                                    <constraint firstAttribute="width" constant="280" id="L7T-fe-R35"/>
-                                </constraints>
-                            </stackView>
-                        </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.59999999999999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="Cg0-aQ-Cw7" firstAttribute="centerX" secondItem="LlR-dH-8Vc" secondAttribute="centerX" id="JhD-uK-pCe"/>
-                            <constraint firstItem="Cg0-aQ-Cw7" firstAttribute="centerY" secondItem="LlR-dH-8Vc" secondAttribute="centerY" id="lIg-jO-UJX"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="74f-Ze-dxz"/>
-                    </view>
-                    <connections>
-                        <outlet property="email" destination="3cx-NY-UKQ" id="l3g-4E-aa0"/>
-                        <outlet property="password" destination="n8j-IX-kse" id="Q1l-4P-WpA"/>
-                        <outlet property="submit" destination="EJ1-YI-nOK" id="JCp-qe-rBE"/>
-                        <outlet property="url" destination="iW3-Ce-EIV" id="ni4-Id-iqD"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="JKM-V2-Iyl" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-71.200000000000003" y="-896.40179910044981"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="gx2-ck-JSu">
             <objects>
@@ -387,7 +304,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="icon" width="150" height="150"/>
         <image name="mark-all-as-read" width="30" height="30"/>
         <image name="next" width="30" height="30"/>
         <image name="previous" width="30" height="30"/>
