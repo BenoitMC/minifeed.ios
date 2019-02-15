@@ -74,7 +74,7 @@ class HomeController : Controller, UITableViewDelegate, UITableViewDataSource {
 
   func tableView(_: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let section = Sections(rawValue: indexPath.section)!
-    let cell = tableView.dequeue(NavItemCell.self)
+    let cell = NavItemCell()
 
     switch section {
     case .special    : cell.setup(repository.nav!.specialCategories[indexPath.row])
@@ -112,28 +112,36 @@ class HomeController : Controller, UITableViewDelegate, UITableViewDataSource {
 }
 
 class NavItemCell : UITableViewCell {
-  @IBOutlet weak var icon    : UIImageView!
-  @IBOutlet weak var label   : UILabel!
-  @IBOutlet weak var counter : UILabel!
+  init() {
+    super.init(style: .value1, reuseIdentifier: "NavItemCell")
+    accessoryType = .disclosureIndicator
+    textLabel!.font = textLabel!.font.withSize(17)
+    detailTextLabel!.font = detailTextLabel!.font.withSize(17)
+  }
+
+  required init?(coder aDecoder: NSCoder) {
+    fatalError()
+  }
 
   func setup(_ item: Category) {
-    icon.image   = UIImage.find("folder").filled(withColor: UIColor.iosBlue)
-
-    setup(item.name, item.counter)
+    let image = UIImage.find("nav-folder")
+    setup(image, item.name, item.counter)
   }
 
   func setup(_ item: Nav.SpecialCategory) {
-    if item.type == .unread  { icon.image = UIImage.find("list-all") }
-    if item.type == .starred { icon.image = UIImage.find("list-starred") }
+    var image: UIImage?
 
-    setup(item.name, item.counter)
+    if item.type == .unread  { image = UIImage.find("nav-all") }
+    if item.type == .starred { image = UIImage.find("nav-starred") }
+
+    setup(image, item.name, item.counter)
   }
 
-  func setup(_ name: String?, _ counter: Int) {
-    icon.image = icon.image?.filled(withColor: UIColor.iosBlue)
+  private func setup(_ image: UIImage?, _ name: String?, _ counter: Int) {
+    imageView!.image = image?.filled(withColor: UIColor.iosBlue)
 
-    self.label.text       = name
-    self.counter.text     = String(counter)
-    self.counter.isHidden = (counter == 0)
+    self.textLabel!.text           = name
+    self.detailTextLabel!.text     = String(counter)
+    self.detailTextLabel!.isHidden = (counter == 0)
   }
 }
