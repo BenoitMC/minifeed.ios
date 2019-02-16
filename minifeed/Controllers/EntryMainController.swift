@@ -3,12 +3,13 @@ import UIKit
 import SnapKit
 import SafariServices
 import WebKit
+import RxSwift
 
 class EntryMainController : Controller {
   var entriesListController : EntriesListController
 
   var entries : [Entry] {
-    return entriesListController.repository.entries
+    return entriesListController.entries
   }
 
   init(entriesListController: EntriesListController) {
@@ -111,28 +112,23 @@ class EntryMainController : Controller {
     entriesListController.updateViews()
   }
 
-  private func reloadHome() {
-    HomeController.instance?.reloadDataSilently()
-  }
-
   @objc
   private func tapOnReadToggle() {
-    EntryRepository(entry)
-      .onChange { [weak self] in
-        self?.updateViews()
-        self?.reloadHome()
-      }
-      .toggleReadRequest().onError(showErrorIfNeeded).perform()
+    let repository = EntryRepository(entry)
+    repository.toggleReadRequest().onError(showErrorIfNeeded).perform()
+    repository.entryObservable.subscribe(onNext: entryUpdated).disposed(by: disposeBag)
   }
 
   @objc
   private func tapOnStarredToggle() {
-    EntryRepository(entry)
-      .onChange { [weak self] in
-        self?.updateViews()
-        self?.reloadHome()
-      }
-      .toggleStarredRequest().onError(showErrorIfNeeded).perform()
+    let repository = EntryRepository(entry)
+    repository.toggleStarredRequest().onError(showErrorIfNeeded).perform()
+    repository.entryObservable.subscribe(onNext: entryUpdated).disposed(by: disposeBag)
+  }
+
+  private func entryUpdated(_: Entry) {
+    updateViews()
+    NavRepository.instance.reload()
   }
 
   @objc

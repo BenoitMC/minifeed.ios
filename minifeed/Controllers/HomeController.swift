@@ -2,14 +2,11 @@ import Foundation
 import UIKit
 import SnapKit
 import SwifterSwift
+import RxSwift
 
 class HomeController : Controller {
-  static var instance: HomeController?
-
   override init() {
     super.init()
-
-    HomeController.instance = self
 
     tableView.dataSource = self
     tableView.delegate   = self
@@ -42,6 +39,12 @@ class HomeController : Controller {
   private func makeBindings() {
     signOutButton.addTargetForAction(self, action: #selector(tapOnSignout))
     refreshControl.addTarget(self, action: #selector(reloadData), for: .valueChanged)
+
+    NavRepository.instance.navObservable.subscribe(onNext: { [weak self] in
+      self?.nav = $0
+      self?.updateViews()
+      Flash.close()
+    }).disposed(by: disposeBag)
   }
 
   override func viewWillAppear(_ animated: Bool) {
@@ -54,7 +57,7 @@ class HomeController : Controller {
     tableView.reloadData()
   }
 
-  private let repository = NavRepository()
+  private var nav: Nav?
 
   @objc
   func reloadData() {
@@ -62,19 +65,7 @@ class HomeController : Controller {
 
     refreshControl.endRefreshing()
     Flash.progress()
-
-    repository.onChange { [weak self] in
-      self?.updateViews()
-      Flash.close()
-    }.request().onError(showErrorIfNeeded).perform()
-  }
-
-  func reloadDataSilently() {
-    guard isSignedIn else { return }
-
-    repository.onChange { [weak self] in
-      self?.updateViews()
-    }.request().onError(showErrorIfNeeded).perform()
+    NavRepository.instance.request().onError(showErrorIfNeeded).perform()
   }
 
   @objc
@@ -90,11 +81,11 @@ class HomeController : Controller {
 
     switch section {
     case .special:
-      let item = repository.nav!.specialCategories[indexPath.row]
+      let item = nav!.specialCategories[indexPath.row]
       controller.repository.type = item.type
       controller.listName = item.name
     case .categories:
-      let item = repository.nav!.categories[indexPath.row]
+      let item = nav!.categories[indexPath.row]
       controller.repository.categoryId = item .id
       controller.listName = item.name
     }
@@ -105,7 +96,7 @@ class HomeController : Controller {
   }
 
   private func showFeeds(at indexPath: IndexPath) {
-    let category = repository.nav!.categories[indexPath.row]
+    let category = nav!.categories[indexPath.row]
     let controller = FeedsListController(category: category)
     pushToNav(controller)
   }
@@ -117,12 +108,12 @@ extension HomeController : UITableViewDelegate, UITableViewDataSource {
   }
 
   func numberOfSections(in _ : UITableView) -> Int {
-    guard repository.nav != nil else { return 0 }
+    guard nav != nil else { return 0 }
     return 2
   }
 
   func tableView(_: UITableView, numberOfRowsInSection sectionIndex: Int) -> Int {
-    guard let nav = repository.nav else { return 0 }
+    guard let nav = nav else { return 0 }
     let section = Sections(rawValue: sectionIndex)!
 
     switch section {
@@ -136,8 +127,8 @@ extension HomeController : UITableViewDelegate, UITableViewDataSource {
     let cell = NavItemCell()
 
     switch section {
-    case .special    : cell.setup(repository.nav!.specialCategories[indexPath.row])
-    case .categories : cell.setup(repository.nav!.categories[indexPath.row])
+    case .special    : cell.setup(nav!.specialCategories[indexPath.row])
+    case .categories : cell.setup(nav!.categories[indexPath.row])
     }
 
     return cell

@@ -2,9 +2,11 @@ import Foundation
 import UIKit
 import SnapKit
 import SwifterSwift
+import RxSwift
 
-class EntriesListController: Controller, UITableViewDelegate, UITableViewDataSource {
+class EntriesListController: Controller {
   var listName: String?
+  var entries: [Entry] = []
 
   override init() {
     super.init()
@@ -37,7 +39,7 @@ class EntriesListController: Controller, UITableViewDelegate, UITableViewDataSou
     $0.dimsBackgroundDuringPresentation = false
   }
 
-  private var searchBar : UISearchBar { return searchController.searchBar }
+  private var searchBar: UISearchBar { return searchController.searchBar }
 
   private func makeViews() {
     view.addSubview(tableView)
@@ -59,10 +61,11 @@ class EntriesListController: Controller, UITableViewDelegate, UITableViewDataSou
     typesSegments.addTarget(self, action: #selector(onTypeChange), for: .valueChanged)
     markAllAsReadButton.addTargetForAction(self, action: #selector(tapOnMarkAllAsRead))
 
-    repository.onChange = { [weak self] in
+    repository.entriesObservable.subscribe(onNext: { [weak self] in
+      self?.entries = $0
       self?.updateViews()
       Flash.close()
-    }
+    }).disposed(by: disposeBag)
   }
 
   override func viewDidLoad() {
@@ -72,7 +75,7 @@ class EntriesListController: Controller, UITableViewDelegate, UITableViewDataSou
   }
 
   func updateViews() {
-    if repository.entries.isEmpty {
+    if entries.isEmpty {
       tableView.tableFooterView = NoEntryCell().do { $0.height = tableView.height }
     } else {
       tableView.tableFooterView = nil
@@ -95,7 +98,7 @@ class EntriesListController: Controller, UITableViewDelegate, UITableViewDataSou
   private func markAllAsRead() {
     Flash.progress()
     repository.markAllAsRead().onError(showErrorIfNeeded).onSuccess { _ in
-      HomeController.instance?.reloadDataSilently()
+      NavRepository.instance.reload()
     }.perform()
   }
 
@@ -116,14 +119,16 @@ class EntriesListController: Controller, UITableViewDelegate, UITableViewDataSou
       self?.markAllAsRead()
     }
   }
+}
 
+extension EntriesListController : UITableViewDelegate, UITableViewDataSource {
   func tableView(_: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return repository.entries.count
+    return entries.count
   }
 
   func tableView(_: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = EntryCell()
-    cell.setup(repository.entries[indexPath.row])
+    cell.setup(entries[indexPath.row])
     return cell
   }
 

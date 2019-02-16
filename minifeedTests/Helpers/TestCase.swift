@@ -1,6 +1,7 @@
 import XCTest
 import SwiftyJSON
 import Mockingjay
+import RxSwift
 
 @testable import minifeed
 
@@ -49,4 +50,6 @@ class TestCase : XCTestCase {
     }
     stub(matcher, json([:]))
   }
+
+  let disposeBag = DisposeBag()
 }

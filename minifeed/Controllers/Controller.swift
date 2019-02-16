@@ -1,5 +1,6 @@
 import Foundation
 import UIKit
+import RxSwift
 
 class Controller : UIViewController {
   init() {
@@ -17,6 +18,8 @@ class Controller : UIViewController {
   private func hideBackButtonText() {
     navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
   }
+
+  let disposeBag = DisposeBag()
 }
 
 extension UIViewController {

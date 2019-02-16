@@ -2,9 +2,10 @@ import Foundation
 import UIKit
 import SnapKit
 import SwifterSwift
+import RxSwift
 
 class FeedsListController : Controller {
-  let category: Category
+  var category: Category
 
   init(category: Category) {
     self.category = category
@@ -16,6 +17,7 @@ class FeedsListController : Controller {
 
     makeViews()
     makeConstraints()
+    makeBindings()
   }
 
   required init?(coder: NSCoder) { fatalError() }
@@ -24,12 +26,27 @@ class FeedsListController : Controller {
 
   private func makeViews() {
     view.addSubview(tableView)
-    navigationItem.title = category.name
   }
 
   private func makeConstraints() {
     tableView.snp.makeConstraints {
       $0.edges.equalToSuperview()
+    }
+  }
+
+  private func makeBindings() {
+    NavRepository.instance.navObservable.subscribe(onNext: updateCategoryFromNav).disposed(by: disposeBag)
+  }
+
+  private func updateViews() {
+    navigationItem.title = category.name
+    tableView.reloadData()
+  }
+
+  private func updateCategoryFromNav(_ nav: Nav) {
+    if let updatedCategory = nav.categories.first(where: {$0.id == category.id}) {
+      category = updatedCategory
+      updateViews()
     }
   }
 }

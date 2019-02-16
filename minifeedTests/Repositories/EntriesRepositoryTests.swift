@@ -1,5 +1,6 @@
 import XCTest
 import Mockingjay
+import RxSwift
 
 @testable import minifeed
 
@@ -12,14 +13,16 @@ class EntriesRepositoryTests : TestCase {
     stubWithFixture("entries")
 
     let repository = EntriesRepository()
+    var entries = [Entry]()
 
     asyncExpectation { e in
-      repository.onChange { e.fulfill() }.get().perform()
+      repository.entriesObservable.subscribe(onNext: { entries = $0 }).disposed(by: disposeBag)
+      repository.get().onResponse { _ in e.fulfill() }.perform()
     }
 
-    XCTAssertEqual(repository.entries.count, 2)
-    XCTAssertEqual(repository.entries[0].name, "Entry 1 name")
-    XCTAssertEqual(repository.entries[1].name, "Entry 2 name")
+    XCTAssertEqual(entries.count, 2)
+    XCTAssertEqual(entries[0].name, "Entry 1 name")
+    XCTAssertEqual(entries[1].name, "Entry 2 name")
   }
 
   func test_get_request_should_add_query_params() {
@@ -36,7 +39,7 @@ class EntriesRepositoryTests : TestCase {
     repository.q          = "search"
 
     asyncExpectation { e in
-      repository.onChange { e.fulfill() }.get().perform()
+      repository.get().onResponse { _ in e.fulfill() }.perform()
     }
   }
 
@@ -54,7 +57,7 @@ class EntriesRepositoryTests : TestCase {
     repository.q          = "search"
 
     asyncExpectation { e in
-      repository.onChange { e.fulfill() }.markAllAsRead().perform()
+      repository.markAllAsRead().onResponse { _ in e.fulfill() }.perform()
     }
   }
 }

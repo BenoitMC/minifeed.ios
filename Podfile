@@ -14,6 +14,8 @@ target "minifeed" do
   pod "SnapKit"
   pod "SVProgressHUD"
   pod "IQKeyboardManagerSwift"
+  pod "RxSwift"
+  pod "RxCocoa"
   pod "Bugsnag"
 
   target "minifeedTests" do

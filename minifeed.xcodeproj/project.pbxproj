@@ -24,7 +24,6 @@
 		14333BEF20BDE86F0007DD66 /* Flash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14333BEE20BDE86F0007DD66 /* Flash.swift */; };
 		143E973820C28CFB00F63417 /* EntryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143E973720C28CFB00F63417 /* EntryRepository.swift */; };
 		143E973A20C293E900F63417 /* EntryRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143E973920C293E900F63417 /* EntryRepositoryTests.swift */; };
-		143E973C20C2945F00F63417 /* _Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143E973B20C2945F00F63417 /* _Repository.swift */; };
 		143E973E20C2964F00F63417 /* entry.json in Resources */ = {isa = PBXBuildFile; fileRef = 143E973D20C2964F00F63417 /* entry.json */; };
 		143E974020C2982800F63417 /* Data+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143E973F20C2982800F63417 /* Data+.swift */; };
 		143E974220C29E6D00F63417 /* URLRequest+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143E974120C29E6D00F63417 /* URLRequest+.swift */; };
@@ -127,7 +126,6 @@
 		14333BEE20BDE86F0007DD66 /* Flash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flash.swift; sourceTree = "<group>"; };
 		143E973720C28CFB00F63417 /* EntryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryRepository.swift; sourceTree = "<group>"; };
 		143E973920C293E900F63417 /* EntryRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryRepositoryTests.swift; sourceTree = "<group>"; };
-		143E973B20C2945F00F63417 /* _Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _Repository.swift; sourceTree = "<group>"; };
 		143E973D20C2964F00F63417 /* entry.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = entry.json; sourceTree = "<group>"; };
 		143E973F20C2982800F63417 /* Data+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+.swift"; sourceTree = "<group>"; };
 		143E974120C29E6D00F63417 /* URLRequest+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+.swift"; sourceTree = "<group>"; };
@@ -381,7 +379,6 @@
 		14A57D0320BC685C008BEF1C /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
-				143E973B20C2945F00F63417 /* _Repository.swift */,
 				140C71FB20BDA0010042FA9B /* EntriesRepository.swift */,
 				143E973720C28CFB00F63417 /* EntryRepository.swift */,
 				14A57D0420BC6873008BEF1C /* NavRepository.swift */,
@@ -644,6 +641,9 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Bugsnag/Bugsnag.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwifterSwift/SwifterSwift.framework",
@@ -654,6 +654,9 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bugsnag.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwifterSwift.framework",
@@ -698,7 +701,6 @@
 				14D9931820A8CC29001F3913 /* MasterController.swift in Sources */,
 				14A57D0220BC6716008BEF1C /* Feed.swift in Sources */,
 				14A57CFE20BC66E3008BEF1C /* _Model.swift in Sources */,
-				143E973C20C2945F00F63417 /* _Repository.swift in Sources */,
 				14D98DAA20B8782300868F01 /* UIViewController+.swift in Sources */,
 				14595C4220C1EAF600E974EF /* EntryMainController.swift in Sources */,
 				144B9A4A20D2CA6A005CD665 /* SigninController.swift in Sources */,

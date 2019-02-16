@@ -9,6 +9,11 @@ PODS:
     - URITemplate (~> 2.0)
   - Mockingjay/XCTest (2.0.1):
     - Mockingjay/Core
+  - RxAtomic (4.4.1)
+  - RxCocoa (4.4.1):
+    - RxSwift (~> 4.0)
+  - RxSwift (4.4.1):
+    - RxAtomic (~> 4.4)
   - SnapKit (4.2.0)
   - SVProgressHUD (2.2.5)
   - SwifterSwift (4.6.0):
@@ -36,6 +41,8 @@ DEPENDENCIES:
   - Bugsnag
   - IQKeyboardManagerSwift
   - Mockingjay
+  - RxCocoa
+  - RxSwift
   - SnapKit
   - SVProgressHUD
   - SwifterSwift
@@ -47,6 +54,9 @@ SPEC REPOS:
     - Bugsnag
     - IQKeyboardManagerSwift
     - Mockingjay
+    - RxAtomic
+    - RxCocoa
+    - RxSwift
     - SnapKit
     - SVProgressHUD
     - SwifterSwift
@@ -58,12 +68,15 @@ SPEC CHECKSUMS:
   Bugsnag: a56a5204ebd35e44e56c1f703824705b1d4b5b97
   IQKeyboardManagerSwift: b07ccf9d8cafe993dcd6cb794eb4ba34611a0c4e
   Mockingjay: 11a621880d2887f1775bdcf824341eb68f218450
+  RxAtomic: f8d6adc1ccb87a767811269e4875887bc74dbf19
+  RxCocoa: 2f35a76bf8887872e28a1914112395b11b8e0e64
+  RxSwift: 92fcf68dfef21f3e2ab1965363d9e7b3d787597e
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwifterSwift: 812ffec6f301922f5430e75be3f2939ea3a80024
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
   URITemplate: ace0c4c46dcf8afe6e89b4060621852886b15c3b
 
-PODFILE CHECKSUM: 249024169487cd572a151485bc7debbd5fa96ff9
+PODFILE CHECKSUM: 47eb6a9534676ff199fbf6eabdf9591ffc6c18e1
 
 COCOAPODS: 1.5.3

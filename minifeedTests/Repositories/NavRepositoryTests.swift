@@ -1,5 +1,6 @@
 import XCTest
 import Mockingjay
+import RxSwift
 
 @testable import minifeed
 
@@ -7,14 +8,16 @@ class NavRepositoryTests : TestCase {
   func test_request_should_parse_response() {
     stubWithFixture("nav")
 
-    let repository = NavRepository()
+    let repository = NavRepository.instance
+    var nav: Nav?
 
     asyncExpectation { e in
-      repository.onChange { e.fulfill() }.request().perform()
+      repository.navObservable.subscribe(onNext: { nav = $0 }).disposed(by: disposeBag)
+      repository.request().onResponse({ _ in e.fulfill() }).perform()
     }
 
-    XCTAssertNotNil(repository.nav)
-    XCTAssertEqual(repository.nav!.categories.count, 2)
-    XCTAssertEqual(repository.nav!.categories[0].name, "My first category")
+    XCTAssertNotNil(nav)
+    XCTAssertEqual(nav!.categories.count, 2)
+    XCTAssertEqual(nav!.categories[0].name, "My first category")
   }
 }

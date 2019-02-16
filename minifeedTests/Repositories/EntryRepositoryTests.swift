@@ -1,5 +1,6 @@
 import XCTest
 import Mockingjay
+import RxSwift
 
 @testable import minifeed
 
@@ -12,17 +13,20 @@ class EntryRepositoryTests : TestCase {
     return entry
   }()
 
+  lazy var repository : EntryRepository = {
+    return EntryRepository(entry)
+  }()
+
   func test_request_should_parse_response() {
     stubWithFixture("entry")
 
-    let repository = EntryRepository(entry)
-
     asyncExpectation { e in
-      repository.onChange { e.fulfill() }.toggleReadRequest().perform()
+      repository.entryObservable.subscribe(onNext: { _ in e.fulfill() }).disposed(by: disposeBag)
+      repository.toggleReadRequest().perform()
     }
 
-    XCTAssertEqual(repository.entry.name, "Entry name")
-    XCTAssertEqual(repository.entry.isRead, true)
+    XCTAssertEqual(entry.name, "Entry name")
+    XCTAssertEqual(entry.isRead, true)
   }
 
   func test_toggle_read_request() {
@@ -33,7 +37,8 @@ class EntryRepositoryTests : TestCase {
     }
 
     asyncExpectation { e in
-      EntryRepository(entry).onChange { e.fulfill() }.toggleReadRequest().perform()
+      repository.entryObservable.subscribe(onNext: { _ in e.fulfill() }).disposed(by: disposeBag)
+      repository.toggleReadRequest().perform()
     }
   }
 
@@ -45,7 +50,8 @@ class EntryRepositoryTests : TestCase {
     }
 
     asyncExpectation { e in
-      EntryRepository(entry).onChange { e.fulfill() }.toggleStarredRequest().perform()
+      repository.entryObservable.subscribe(onNext: { _ in e.fulfill() }).disposed(by: disposeBag)
+      repository.toggleStarredRequest().perform()
     }
   }
 }

@@ -91,7 +91,7 @@ class SigninController : Controller {
         Preferences.set("auth_token", token)
         ApiRequest.baseUrl = url
         ApiRequest.defaultHeaders["Authorization"] = "Bearer " + token
-        HomeController.instance?.reloadDataSilently()
+        NavRepository.instance.reload()
         Flash.success {
           self.dismiss()
         }

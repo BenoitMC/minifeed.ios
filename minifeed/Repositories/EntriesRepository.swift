@@ -1,13 +1,16 @@
 import Foundation
 import Alamofire
+import RxSwift
 
-class EntriesRepository : Repository {
+class EntriesRepository {
   var type       : EntryFilterTypes = .unread
   var categoryId : String?
   var feedId     : String?
   var q          : String?
 
-  var entries : [Entry] = []
+  private let entriesPublish = PublishSubject<[Entry]>()
+
+  lazy var entriesObservable = entriesPublish.asObservable()
 
   var params : [String:String] {
     return [
@@ -30,8 +33,8 @@ class EntriesRepository : Repository {
 
   func commonRequest(_ method: HTTPMethod, _ url: String) -> ApiRequest {
     return ApiRequest(method, url, params).onSuccess {
-      self.entries = $0.json["entries"].arrayValue.map { Entry($0) }
-      self.onChange?()
+      let entries = $0.json["entries"].arrayValue.map { Entry($0) }
+      self.entriesPublish.onNext(entries)
     }
   }
 }
