@@ -9,15 +9,13 @@ class EntryDetailsController : Controller {
     self.entry = entry
     webview.navigationDelegate = navigationDelegate
 
-    super.init(nibName: nil, bundle: nil)
+    super.init()
 
     makeViews()
     makeConstraints()
   }
 
-  required init?(coder aDecoder: NSCoder) {
-    fatalError()
-  }
+  required init?(coder: NSCoder) { fatalError() }
 
   var entry: Entry
 
@@ -59,7 +57,7 @@ class EntryDetailsController : Controller {
     updateViews()
   }
 
-  func updateViews() {
+  private func updateViews() {
     label.text = entry.name
     infos.text = entry.infos
   }

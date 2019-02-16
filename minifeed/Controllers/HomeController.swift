@@ -6,8 +6,8 @@ import SwifterSwift
 class HomeController : Controller, UITableViewDelegate, UITableViewDataSource {
   static var instance : HomeController?
 
-  init() {
-    super.init(nibName: nil, bundle: nil)
+  override init() {
+    super.init()
 
     HomeController.instance = self
     tableView.dataSource = self
@@ -18,9 +18,7 @@ class HomeController : Controller, UITableViewDelegate, UITableViewDataSource {
     makeBindings()
   }
 
-  required init?(coder aDecoder: NSCoder) {
-    fatalError()
-  }
+  required init?(coder: NSCoder) { fatalError() }
 
   private let tableView = UITableView(style: .grouped)
   private let refreshControl = UIRefreshControl()
@@ -147,9 +145,7 @@ class NavItemCell : UITableViewCell {
     detailTextLabel!.font = detailTextLabel!.font.withSize(17)
   }
 
-  required init?(coder aDecoder: NSCoder) {
-    fatalError()
-  }
+  required init?(coder: NSCoder) { fatalError() }
 
   func setup(_ item: Category) {
     let image = UIImage.find("nav-folder")

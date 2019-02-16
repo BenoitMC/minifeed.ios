@@ -5,16 +5,23 @@ import SafariServices
 import WebKit
 
 class EntryMainController : Controller {
-  init() {
-    super.init(nibName: nil, bundle: nil)
+  var entriesListController : EntriesListController
+
+  var entries : [Entry] {
+    return entriesListController.repository.entries
+  }
+
+  init(entriesListController: EntriesListController) {
+    self.entriesListController = entriesListController
+
+    super.init()
+
     makeViews()
     makeConstraints()
     makeBindings()
   }
 
-  required init?(coder aDecoder: NSCoder) {
-    fatalError()
-  }
+  required init?(coder: NSCoder) { fatalError() }
 
   private let toolbar             = UIToolbar()
   private let previousButton      = UIBarButtonItem(image: UIImage.find("previous"))
@@ -76,13 +83,7 @@ class EntryMainController : Controller {
     markAsReadIfNeeded()
   }
 
-  var entriesListController : EntriesListController!
-
-  var entries : [Entry] {
-    return entriesListController.repository.entries
-  }
-
-  lazy var pageController : UIPageViewController = {
+  private lazy var pageController : UIPageViewController = {
     let controller = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
     controller.view.backgroundColor = .white
     controller.dataSource = self
@@ -90,12 +91,8 @@ class EntryMainController : Controller {
     return controller
   }()
 
-  var currentEntryDetailsController : EntryDetailsController {
-    return pageController.viewControllers![0] as! EntryDetailsController
-  }
-
   var entry : Entry {
-    return currentEntryDetailsController.entry
+    return (pageController.viewControllers![0] as! EntryDetailsController).entry
   }
 
   func updateViews() {
@@ -114,12 +111,12 @@ class EntryMainController : Controller {
     entriesListController.updateViews()
   }
 
-  func reloadHome() {
+  private func reloadHome() {
     HomeController.instance?.reloadDataSilently()
   }
 
   @objc
-  func tapOnReadToggle() {
+  private func tapOnReadToggle() {
     EntryRepository(entry)
       .onChange { [weak self] in
         self?.updateViews()
@@ -129,7 +126,7 @@ class EntryMainController : Controller {
   }
 
   @objc
-  func tapOnStarredToggle() {
+  private func tapOnStarredToggle() {
     EntryRepository(entry)
       .onChange { [weak self] in
         self?.updateViews()
@@ -139,16 +136,16 @@ class EntryMainController : Controller {
   }
 
   @objc
-  func tapOnReader() {
+  private func tapOnReader() {
     openSafari(entry.url?.url, readerMode: true)
   }
 
   @objc
-  func tapOnSafari() {
+  private func tapOnSafari() {
     openSafari(entry.url?.url)
   }
 
-  func openSafari(_ url: URL?, readerMode: Bool = false) {
+  private func openSafari(_ url: URL?, readerMode: Bool = false) {
     guard let url = url else { return }
 
     let config = SFSafariViewController.Configuration()
@@ -159,7 +156,7 @@ class EntryMainController : Controller {
   }
 
   @objc
-  func tapOnPrevious() {
+  private func tapOnPrevious() {
     pageController.goToPreviousPage() {
       self.updateViews()
       self.markAsReadIfNeeded()
@@ -167,14 +164,14 @@ class EntryMainController : Controller {
   }
 
   @objc
-  func tapOnNext() {
+  private func tapOnNext() {
     pageController.goToNextPage() {
       self.updateViews()
       self.markAsReadIfNeeded()
     }
   }
 
-  func markAsReadIfNeeded() {
+  private func markAsReadIfNeeded() {
     if !entry.isRead! { tapOnReadToggle() }
   }
 }

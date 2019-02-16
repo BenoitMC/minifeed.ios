@@ -6,8 +6,8 @@ import SnapKit
 class EntriesListController: Controller, UITableViewDelegate, UITableViewDataSource {
   var categoryName: String?
 
-  init() {
-    super.init(nibName: nil, bundle: nil)
+  override init() {
+    super.init()
 
     tableView.dataSource      = self
     tableView.delegate        = self
@@ -19,22 +19,20 @@ class EntriesListController: Controller, UITableViewDelegate, UITableViewDataSou
     makeBindings()
   }
 
-  required init?(coder aDecoder: NSCoder) {
-    fatalError()
-  }
+  required init?(coder: NSCoder) { fatalError() }
 
-  private var tableView      = UITableView()
-  private var typesSegments  = UISegmentedControl(items: EntryFilterTypes.names)
-  private var refreshControl = UIRefreshControl()
+  private let tableView      = UITableView()
+  private let typesSegments  = UISegmentedControl(items: EntryFilterTypes.names)
+  private let refreshControl = UIRefreshControl()
 
-  private var markAllAsReadButton = UIBarButtonItem(
+  private let markAllAsReadButton = UIBarButtonItem(
     image: UIImage.find("mark-all-as-read"),
     style: .plain,
     target: self,
     action: #selector(tapOnMarkAllAsRead)
   )
 
-  private var searchController = UISearchController(searchResultsController: nil).do {
+  private let searchController = UISearchController(searchResultsController: nil).do {
     $0.hidesNavigationBarDuringPresentation = false
     $0.dimsBackgroundDuringPresentation = false
   }
@@ -94,7 +92,7 @@ class EntriesListController: Controller, UITableViewDelegate, UITableViewDataSou
     repository.get().onError(showErrorIfNeeded).perform()
   }
 
-  func markAllAsRead() {
+  private func markAllAsRead() {
     Flash.progress()
     repository.markAllAsRead().onError(showErrorIfNeeded).onSuccess { _ in
       HomeController.instance?.reloadDataSilently()
@@ -131,8 +129,7 @@ class EntriesListController: Controller, UITableViewDelegate, UITableViewDataSou
 
   func tableView(_: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselect(indexPath)
-    let controller = EntryMainController()
-    controller.entriesListController = self
+    let controller = EntryMainController(entriesListController: self)
     controller.showEntryAtIndex(indexPath.row)
     controller.title = categoryName
     showSplitViewDetail(controller)
@@ -160,9 +157,7 @@ class EntryCell : UITableViewCell {
     makeConstraints()
   }
 
-  required init?(coder aDecoder: NSCoder) {
-    fatalError()
-  }
+  required init?(coder: NSCoder) { fatalError() }
 
   func setup(_ entry: Entry) {
     unreadIndicator.isHidden = entry.isRead!
@@ -202,9 +197,7 @@ class NoEntryCell : UITableViewCell {
     makeConstraints()
   }
 
-  required init?(coder aDecoder: NSCoder) {
-    fatalError()
-  }
+  required init?(coder: NSCoder) { fatalError() }
 
   private let label = UILabel().do {
     $0.font = $0.font.withSize(32)

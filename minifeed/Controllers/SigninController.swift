@@ -4,41 +4,40 @@ import SnapKit
 import SwifterSwift
 
 class SigninController : Controller {
-  init() {
-    super.init(nibName: nil, bundle: nil)
+  override init() {
+    super.init()
+
     makeViews()
     makeConstraints()
     makeBindings()
   }
 
-  required init?(coder aDecoder: NSCoder) {
-    fatalError()
-  }
+  required init?(coder: NSCoder) { fatalError() }
 
   override func viewDidLoad() {
     super.viewDidLoad()
   }
 
-  private var mainStack = UIStackView().do {
+  private let mainStack = UIStackView().do {
     $0.axis = .vertical
     $0.distribution = .fill
     $0.alignment = .center
     $0.spacing = 50
   }
 
-  private var logo = UIImageView(image: UIImage.find("icon"))
+  private let logo = UIImageView(image: UIImage.find("icon"))
 
-  private var formStack = UIStackView().do {
+  private let formStack = UIStackView().do {
     $0.axis = .vertical
     $0.distribution = .fill
     $0.alignment = .fill
     $0.spacing = 20
   }
 
-  private var url      = UITextField.forURL(placeholder: t("signin.url"))
-  private var email    = UITextField.forEmail(placeholder: t("signin.email"))
-  private var password = UITextField.forPassword(placeholder: t("signin.password"))
-  private var submit   = UIButton(title: t("signin.submit"))
+  private let url      = UITextField.forURL(placeholder: t("signin.url"))
+  private let email    = UITextField.forEmail(placeholder: t("signin.email"))
+  private let password = UITextField.forPassword(placeholder: t("signin.password"))
+  private let submit   = UIButton(title: t("signin.submit"))
 
   private func makeViews() {
     view.backgroundColor = UIColor(hex: 0x0099FF)
