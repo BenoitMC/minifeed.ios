@@ -2,14 +2,16 @@ import Foundation
 import UIKit
 
 class MasterController : UISplitViewController {
-  override func viewDidLoad() {
-    super.viewDidLoad()
+  init () {
+    super.init(nibName: nil, bundle: nil)
 
     loadPreferences()
     navController.setViewControllers([homeController])
     hideDetailControllerIfNeeded()
     homeController.reloadData()
   }
+
+  required init?(coder: NSCoder) { fatalError() }
 
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
