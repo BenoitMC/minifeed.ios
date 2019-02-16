@@ -19,25 +19,21 @@ class SigninController : Controller {
     super.viewDidLoad()
   }
 
-  private var mainStack: UIStackView = {
-    let stack = UIStackView()
-    stack.axis = .vertical
-    stack.distribution = .fill
-    stack.alignment = .center
-    stack.spacing = 50
-    return stack
-  }()
+  private var mainStack = UIStackView().do {
+    $0.axis = .vertical
+    $0.distribution = .fill
+    $0.alignment = .center
+    $0.spacing = 50
+  }
 
   private var logo = UIImageView(image: UIImage.find("icon"))
 
-  private var formStack: UIStackView = {
-    let stack = UIStackView()
-    stack.axis = .vertical
-    stack.distribution = .fill
-    stack.alignment = .fill
-    stack.spacing = 20
-    return stack
-  }()
+  private var formStack = UIStackView().do {
+    $0.axis = .vertical
+    $0.distribution = .fill
+    $0.alignment = .fill
+    $0.spacing = 20
+  }
 
   private var url      = UITextField.forURL(placeholder: t("signin.url"))
   private var email    = UITextField.forEmail(placeholder: t("signin.email"))

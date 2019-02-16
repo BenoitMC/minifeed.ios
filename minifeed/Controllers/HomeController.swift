@@ -47,11 +47,10 @@ class HomeController : Controller, UITableViewDelegate, UITableViewDataSource {
     }.request().onError(showErrorIfNeeded).perform()
   }
 
-  lazy var refreshControl : UIRefreshControl = {
-    let refreshControl = UIRefreshControl()
-    refreshControl.addTarget(self, action: #selector(reloadData), for: .valueChanged)
-    return refreshControl
-  }()
+
+  private let refreshControl = UIRefreshControl().do {
+    $0.addTarget(self, action: #selector(reloadData), for: .valueChanged)
+  }
 
   enum Sections : Int {
     case special, categories

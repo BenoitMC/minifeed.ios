@@ -7,7 +7,5 @@ enum EntryFilterTypes : String {
     return [.all, .unread, .starred]
   }
 
-  static var names : [String] = {
-    allCases.map { t("entry_filter_types.\($0.rawValue)") }
-  }()
+  static var names : [String] = allCases.map { t("entry_filter_types.\($0.rawValue)") }
 }

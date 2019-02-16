@@ -34,12 +34,10 @@ class EntriesListController: Controller, UITableViewDelegate, UITableViewDataSou
     action: #selector(tapOnMarkAllAsRead)
   )
 
-  private var searchController : UISearchController = {
-    let searchController = UISearchController(searchResultsController: nil)
-    searchController.hidesNavigationBarDuringPresentation = false
-    searchController.dimsBackgroundDuringPresentation = false
-    return searchController
-  }()
+  private var searchController = UISearchController(searchResultsController: nil).do {
+    $0.hidesNavigationBarDuringPresentation = false
+    $0.dimsBackgroundDuringPresentation = false
+  }
 
   private var searchBar : UISearchBar { return searchController.searchBar }
 
@@ -77,9 +75,7 @@ class EntriesListController: Controller, UITableViewDelegate, UITableViewDataSou
 
   func updateViews() {
     if repository.entries.isEmpty {
-      let cell = NoEntryCell()
-      cell.height = tableView.height
-      tableView.tableFooterView = cell
+      tableView.tableFooterView = NoEntryCell().do { $0.height = tableView.height }
     } else {
       tableView.tableFooterView = nil
     }
@@ -175,12 +171,10 @@ class EntryCell : UITableViewCell {
     detailTextLabel!.text = entry.infos
   }
 
-  private lazy var unreadIndicator: UIView = {
-    let view = UIView()
-    view.backgroundColor = UIColor.iosBlue
-    view.cornerRadius = 6
-    return view
-  }()
+  private let unreadIndicator = UIView().do {
+    $0.backgroundColor = UIColor.iosBlue
+    $0.cornerRadius = 6
+  }
 
   private func makeViews() {
     accessoryType = .disclosureIndicator
@@ -212,13 +206,11 @@ class NoEntryCell : UITableViewCell {
     fatalError()
   }
 
-  private let label: UILabel = {
-    let label = UILabel()
-    label.font = label.font.withSize(32)
-    label.textColor = .lightGray
-    label.text = t("entries_list.empty")
-    return label
-  }()
+  private let label = UILabel().do {
+    $0.font = $0.font.withSize(32)
+    $0.textColor = .lightGray
+    $0.text = t("entries_list.empty")
+  }
 
   private func makeViews() {
     contentView.addSubview(label)

@@ -60,6 +60,7 @@
 		33612FB0229A2564A29272A1 /* Pods_minifeedUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 355455ADCC22BF0A50DE925C /* Pods_minifeedUITests.framework */; };
 		407B47E4F3C368030894FA10 /* Pods_minifeedTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D9E60800262D9CFE7DFA068 /* Pods_minifeedTests.framework */; };
 		633EC5F00C6C7101EA47C0F3 /* Pods_minifeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A2AFB06693C379A92F65C0B /* Pods_minifeed.framework */; };
+		ACFDE69FB9F8243382DB5F41 /* Do.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFDE6922F3139A458CC5ABA /* Do.swift */; };
 		ACFDE98ABB5D35FBEACA3625 /* UIField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFDEB8B7876CBFD9BBEE277 /* UIField+.swift */; };
 		ACFDEB70BA976B903121F7B8 /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFDEB04FC4DB38DB23804E4 /* UIButton+.swift */; };
 /* End PBXBuildFile section */
@@ -160,6 +161,7 @@
 		60CBE59D1B8EBEEC5ABFC39C /* Pods-minifeedTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-minifeedTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-minifeedTests/Pods-minifeedTests.release.xcconfig"; sourceTree = "<group>"; };
 		6D9E60800262D9CFE7DFA068 /* Pods_minifeedTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_minifeedTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F2D39713838CE33533A16A2 /* Pods-minifeed.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-minifeed.debug.xcconfig"; path = "Pods/Target Support Files/Pods-minifeed/Pods-minifeed.debug.xcconfig"; sourceTree = "<group>"; };
+		ACFDE6922F3139A458CC5ABA /* Do.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Do.swift; sourceTree = "<group>"; };
 		ACFDEB04FC4DB38DB23804E4 /* UIButton+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+.swift"; sourceTree = "<group>"; };
 		ACFDEB8B7876CBFD9BBEE277 /* UIField+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIField+.swift"; sourceTree = "<group>"; };
 		FF089672452A8D9E4C674073 /* Pods-minifeedUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-minifeedUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-minifeedUITests/Pods-minifeedUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 			children = (
 				1405F0EF20C059150071E5B8 /* Swift */,
 				1405F0F020C0591E0071E5B8 /* UIKit */,
+				ACFDE6922F3139A458CC5ABA /* Do.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -706,6 +709,7 @@
 				146ECC1920B7182100D90C6F /* API.swift in Sources */,
 				ACFDE98ABB5D35FBEACA3625 /* UIField+.swift in Sources */,
 				ACFDEB70BA976B903121F7B8 /* UIButton+.swift in Sources */,
+				ACFDE69FB9F8243382DB5F41 /* Do.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

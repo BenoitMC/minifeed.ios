@@ -10,36 +10,36 @@ extension UITextField {
   }
 
   static func forURL(placeholder: String? = nil) -> UITextField {
-    let field = UITextField.stylized()
-    field.textContentType = .URL
-    field.keyboardType = .URL
-    field.autocapitalizationType = .none
-    field.autocorrectionType = .no
-    field.spellCheckingType = .no
-    field.placeholder = placeholder
-    return field
+    return UITextField.stylized().do {
+      $0.textContentType = .URL
+      $0.keyboardType = .URL
+      $0.autocapitalizationType = .none
+      $0.autocorrectionType = .no
+      $0.spellCheckingType = .no
+      $0.placeholder = placeholder
+    }
   }
 
   static func forEmail(placeholder: String? = nil) -> UITextField {
-    let field = UITextField.stylized()
-    field.textContentType = .emailAddress
-    field.keyboardType = .emailAddress
-    field.autocapitalizationType = .none
-    field.autocorrectionType = .no
-    field.spellCheckingType = .no
-    field.placeholder = placeholder
-    return field
+    return UITextField.stylized().do {
+      $0.textContentType = .emailAddress
+      $0.keyboardType = .emailAddress
+      $0.autocapitalizationType = .none
+      $0.autocorrectionType = .no
+      $0.spellCheckingType = .no
+      $0.placeholder = placeholder
+    }
   }
 
   static func forPassword(placeholder: String? = nil) -> UITextField {
-    let field = UITextField.stylized()
-    field.isSecureTextEntry = true
-    field.textContentType = .password
-    field.keyboardType = .asciiCapable
-    field.autocapitalizationType = .none
-    field.autocorrectionType = .no
-    field.spellCheckingType = .no
-    field.placeholder = placeholder
-    return field
+    return UITextField.stylized().do {
+      $0.isSecureTextEntry = true
+      $0.textContentType = .password
+      $0.keyboardType = .asciiCapable
+      $0.autocapitalizationType = .none
+      $0.autocorrectionType = .no
+      $0.spellCheckingType = .no
+      $0.placeholder = placeholder
+    }
   }
 }
