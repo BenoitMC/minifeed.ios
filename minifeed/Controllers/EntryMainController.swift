@@ -25,6 +25,7 @@ class EntryMainController : Controller {
   private let nextButton          = UIBarButtonItem(image: UIImage.find("next"))
 
   private func makeViews() {
+    view.backgroundColor = .white
     view.addSubview(pageController.view)
     addChild(pageController)
     pageController.didMove(toParent: self)
