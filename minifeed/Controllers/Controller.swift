@@ -6,7 +6,17 @@ class Controller : UIViewController {
     super.init(nibName: nil, bundle: nil)
   }
 
+  override func viewDidLoad() {
+    super.viewDidLoad()
+
+    hideBackButtonText()
+  }
+
   required init?(coder: NSCoder) { fatalError() }
+
+  private func hideBackButtonText() {
+    navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+  }
 }
 
 extension UIViewController {
