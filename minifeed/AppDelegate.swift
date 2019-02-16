@@ -10,6 +10,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     Config.load()
     IQKeyboardManager.shared.enable = true
     Flash.setup()
+    Style.applyCommons()
     return true
   }
 

@@ -131,7 +131,7 @@ class EntriesListController: Controller, UITableViewDelegate, UITableViewDataSou
 
   func tableView(_: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselect(indexPath)
-    let controller = instantiate(EntryMainController.self)
+    let controller = EntryMainController()
     controller.entriesListController = self
     controller.showEntryAtIndex(indexPath.row)
     controller.title = categoryName

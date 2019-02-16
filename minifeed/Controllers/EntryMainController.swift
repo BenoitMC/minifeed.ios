@@ -5,15 +5,71 @@ import SafariServices
 import WebKit
 
 class EntryMainController : Controller {
-  @IBOutlet weak var pageContainer       : UIView!
-  @IBOutlet weak var toggleReadButton    : UIButton!
-  @IBOutlet weak var toggleStarredButton : UIButton!
+  init() {
+    super.init(nibName: nil, bundle: nil)
+    makeViews()
+    makeConstraints()
+    makeBindings()
+  }
 
-  override func viewDidLoad() {
-    super.viewDidLoad()
+  required init?(coder aDecoder: NSCoder) {
+    fatalError()
+  }
 
-    pageContainer.addSubview(pageController.view)
-    pageController.view.snp.makeConstraints { $0.edges.equalTo(pageContainer) }
+  private let toolbar             = UIToolbar()
+  private let previousButton      = UIBarButtonItem(image: UIImage.find("previous"))
+  private let toggleReadButton    = UIBarButtonItem(image: UIImage.find("read"))
+  private let toggleStarredButton = UIBarButtonItem(image: UIImage.find("unstarred"))
+  private let readerButton        = UIBarButtonItem(image: UIImage.find("reader"))
+  private let safariButton        = UIBarButtonItem(image: UIImage.find("safari"))
+  private let nextButton          = UIBarButtonItem(image: UIImage.find("next"))
+
+  private func makeViews() {
+    view.addSubview(pageController.view)
+    addChild(pageController)
+    pageController.didMove(toParent: self)
+
+    view.addSubview(toolbar)
+
+    toolbar.items = [
+      UIBarButtonItem.fixedSpace(-12),
+      previousButton,
+      UIBarButtonItem.flexibleSpace(),
+      toggleReadButton,
+      UIBarButtonItem.flexibleSpace(),
+      toggleStarredButton,
+      UIBarButtonItem.flexibleSpace(),
+      readerButton,
+      UIBarButtonItem.flexibleSpace(),
+      safariButton,
+      UIBarButtonItem.flexibleSpace(),
+      nextButton,
+      UIBarButtonItem.fixedSpace(-12)
+    ]
+  }
+
+  private func makeConstraints() {
+    pageController.view.snp.makeConstraints {
+      $0.top.left.right.equalTo(view!.safeAreaLayoutGuide)
+    }
+
+    toolbar.snp.makeConstraints {
+      $0.top.equalTo(pageController.view.snp.bottom)
+      $0.bottom.left.right.equalTo(view!.safeAreaLayoutGuide)
+    }
+  }
+
+  private func makeBindings() {
+    previousButton.action      = #selector(tapOnPrevious)
+    toggleReadButton.action    = #selector(tapOnReadToggle)
+    toggleStarredButton.action = #selector(tapOnStarredToggle)
+    readerButton.action        = #selector(tapOnReader)
+    safariButton.action        = #selector(tapOnSafari)
+    nextButton.action          = #selector(tapOnNext)
+  }
+
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
 
     updateViews()
     markAsReadIfNeeded()
@@ -27,10 +83,9 @@ class EntryMainController : Controller {
 
   lazy var pageController : UIPageViewController = {
     let controller = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
+    controller.view.backgroundColor = .white
     controller.dataSource = self
     controller.delegate   = self
-    addChild(controller)
-    controller.didMove(toParent: self)
     return controller
   }()
 
@@ -44,15 +99,15 @@ class EntryMainController : Controller {
 
   func updateViews() {
     if entry.isRead! {
-      toggleReadButton.setImageForAllStates(UIImage.find("read"))
+      toggleReadButton.image = UIImage.find("read")
     } else {
-      toggleReadButton.setImageForAllStates(UIImage.find("unread"))
+      toggleReadButton.image = UIImage.find("unread")
     }
 
     if entry.isStarred! {
-      toggleStarredButton.setImageForAllStates(UIImage.find("starred"))
+      toggleStarredButton.image = UIImage.find("starred")
     } else {
-      toggleStarredButton.setImageForAllStates(UIImage.find("unstarred"))
+      toggleStarredButton.image = UIImage.find("unstarred")
     }
 
     entriesListController.updateViews()
@@ -62,7 +117,8 @@ class EntryMainController : Controller {
     HomeController.instance?.reloadDataSilently()
   }
 
-  @IBAction func tapOnReadToggle() {
+  @objc
+  func tapOnReadToggle() {
     EntryRepository(entry)
       .onChange { [weak self] in
         self?.updateViews()
@@ -71,7 +127,8 @@ class EntryMainController : Controller {
       .toggleReadRequest().onError(showErrorIfNeeded).perform()
   }
 
-  @IBAction func tapOnStarredToggle() {
+  @objc
+  func tapOnStarredToggle() {
     EntryRepository(entry)
       .onChange { [weak self] in
         self?.updateViews()
@@ -80,11 +137,13 @@ class EntryMainController : Controller {
       .toggleStarredRequest().onError(showErrorIfNeeded).perform()
   }
 
-  @IBAction func tapOnReader() {
+  @objc
+  func tapOnReader() {
     openSafari(entry.url?.url, readerMode: true)
   }
 
-  @IBAction func tapOnOpen() {
+  @objc
+  func tapOnSafari() {
     openSafari(entry.url?.url)
   }
 
@@ -98,14 +157,16 @@ class EntryMainController : Controller {
     present(controller)
   }
 
-  @IBAction func tapOnPrevious() {
+  @objc
+  func tapOnPrevious() {
     pageController.goToPreviousPage() {
       self.updateViews()
       self.markAsReadIfNeeded()
     }
   }
 
-  @IBAction func tapOnNext() {
+  @objc
+  func tapOnNext() {
     pageController.goToNextPage() {
       self.updateViews()
       self.markAsReadIfNeeded()
