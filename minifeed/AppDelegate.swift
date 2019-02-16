@@ -11,6 +11,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     IQKeyboardManager.shared.enable = true
     Flash.setup()
     Style.applyCommons()
+
+    window = UIWindow(frame: UIScreen.main.bounds)
+    window!.rootViewController = MasterController()
+    window!.makeKeyAndVisible()
+
     return true
   }
 
