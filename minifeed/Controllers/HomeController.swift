@@ -87,7 +87,7 @@ class HomeController : Controller, UITableViewDelegate, UITableViewDataSource {
   func tableView(_: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselect(indexPath)
     let section = Sections(rawValue: indexPath.section)!
-    let controller = instantiate(EntriesListController.self)
+    let controller = EntriesListController()
 
 
     switch section {
@@ -100,6 +100,8 @@ class HomeController : Controller, UITableViewDelegate, UITableViewDataSource {
       controller.repository.categoryId = item .id
       controller.categoryName = item.name
     }
+
+    controller.reloadData()
 
     pushToNav(controller)
   }

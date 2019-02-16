@@ -6,7 +6,6 @@
 "entry_filter_types.unread"  = "Unread";
 "entry_filter_types.starred" = "Starred";
 
-"entries_list.search.placeholder" = "Search";
 "entries_list.mark_all_as_read.confirm" = "Mark all as read ?";
 "entries_list.empty" = "Empty...";
 

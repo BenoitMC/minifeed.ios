@@ -3,44 +3,82 @@ import UIKit
 import SwifterSwift
 import SnapKit
 
-class EntriesListController: Controller, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
-  @IBOutlet weak var searchBar : UISearchBar!
-  @IBOutlet weak var tableView : UITableView!
-  @IBOutlet weak var types     : UISegmentedControl!
-
+class EntriesListController: Controller, UITableViewDelegate, UITableViewDataSource {
   var categoryName: String?
 
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    tableView.dataSource = self
-    tableView.delegate   = self
-    tableView.addSubview(refreshControl)
-    searchBar.delegate = self
+  init() {
+    super.init(nibName: nil, bundle: nil)
 
-    i18n()
-    hideSearchBar()
-    updateViews()
+    tableView.dataSource      = self
+    tableView.delegate        = self
+    searchBar.delegate        = self
+    searchController.delegate = self
+
+    makeViews()
+    makeConstraints()
+    makeBindings()
+  }
+
+  required init?(coder aDecoder: NSCoder) {
+    fatalError()
+  }
+
+  private var tableView      = UITableView()
+  private var typesSegments  = UISegmentedControl(items: EntryFilterTypes.names)
+  private var refreshControl = UIRefreshControl()
+
+  private var markAllAsReadButton = UIBarButtonItem(
+    image: UIImage.find("mark-all-as-read"),
+    style: .plain,
+    target: self,
+    action: #selector(tapOnMarkAllAsRead)
+  )
+
+  private var searchController : UISearchController = {
+    let searchController = UISearchController(searchResultsController: nil)
+    searchController.hidesNavigationBarDuringPresentation = false
+    searchController.dimsBackgroundDuringPresentation = false
+    return searchController
+  }()
+
+  private var searchBar : UISearchBar { return searchController.searchBar }
+
+  private func makeViews() {
+    view.addSubview(tableView)
+    navigationItem.titleView = typesSegments
+    navigationItem.rightBarButtonItem = markAllAsReadButton
+    tableView.addSubview(refreshControl)
+    navigationItem.searchController = searchController
+    navigationItem.hidesSearchBarWhenScrolling = true
+  }
+
+  private func makeConstraints() {
+    tableView.snp.makeConstraints {
+      $0.edges.equalToSuperview()
+    }
+  }
+
+  private func makeBindings() {
+    refreshControl.addTarget(self, action: #selector(reloadData), for: .valueChanged)
+    typesSegments.addTarget(self, action: #selector(onTypeChange), for: .valueChanged)
+    markAllAsReadButton.addTargetForAction(self, action: #selector(tapOnMarkAllAsRead))
 
     repository.onChange = { [weak self] in
       self?.updateViews()
       Flash.close()
     }
-
-    reloadData()
   }
 
-  func i18n() {
-    searchBar.placeholder = t("entries_list.search.placeholder")
-  }
+  override func viewDidLoad() {
+    super.viewDidLoad()
 
-  func hideSearchBar() {
-    tableView.contentOffset = CGPoint(x: 0.0, y: searchBar.height)
+    updateViews()
   }
 
   func updateViews() {
     if repository.entries.isEmpty {
       let cell = NoEntryCell()
-      cell.height = tableView.height - searchBar.height
+      cell.height = tableView.height
       tableView.tableFooterView = cell
     } else {
       tableView.tableFooterView = nil
@@ -50,11 +88,11 @@ class EntriesListController: Controller, UITableViewDelegate, UITableViewDataSou
 
     tableView.separatorInset = UIEdgeInsets(inset: 28)
 
-    types.segmentTitles = EntryFilterTypes.allCases.map { t("entry_filter_types.\($0.rawValue)") }
-    types.selectedSegmentIndex = EntryFilterTypes.allCases.index(of: repository.type)!
+    typesSegments.selectedSegmentIndex = EntryFilterTypes.allCases.index(of: repository.type)!
   }
 
-  @objc func reloadData() {
+  @objc
+  func reloadData() {
     refreshControl.endRefreshing()
     Flash.progress()
     repository.get().onError(showErrorIfNeeded).perform()
@@ -67,23 +105,19 @@ class EntriesListController: Controller, UITableViewDelegate, UITableViewDataSou
     }.perform()
   }
 
-  lazy var refreshControl : UIRefreshControl = {
-    let refreshControl = UIRefreshControl()
-    refreshControl.addTarget(self, action: #selector(reloadData), for: .valueChanged)
-    return refreshControl
-  }()
-
   let repository = EntriesRepository()
 
-  @IBAction func onTypeChange() {
-    if types.selectedSegmentIndex == 0 { repository.type = .all     }
-    if types.selectedSegmentIndex == 1 { repository.type = .unread  }
-    if types.selectedSegmentIndex == 2 { repository.type = .starred }
+  @objc
+  func onTypeChange() {
+    if typesSegments.selectedSegmentIndex == 0 { repository.type = .all     }
+    if typesSegments.selectedSegmentIndex == 1 { repository.type = .unread  }
+    if typesSegments.selectedSegmentIndex == 2 { repository.type = .starred }
 
     reloadData()
   }
 
-  @IBAction func tapOnMarkAllAsRead(_ sender: Any) {
+  @objc
+  private func tapOnMarkAllAsRead() {
     confirm(t("entries_list.mark_all_as_read.confirm")) { [weak self] in
       self?.markAllAsRead()
     }
@@ -107,20 +141,19 @@ class EntriesListController: Controller, UITableViewDelegate, UITableViewDataSou
     controller.title = categoryName
     showSplitViewDetail(controller)
   }
+}
 
-  var searchTimer = Timer()
-
-  func searchBar(_: UISearchBar, textDidChange q: String) {
-    searchTimer.invalidate()
-
-    searchTimer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { [weak self] _ in
-      self?.repository.q = q
-      self?.reloadData()
-    }
+extension EntriesListController : UISearchBarDelegate {
+  func searchBarSearchButtonClicked(_: UISearchBar) {
+    repository.q = searchController.searchBar.text
+    reloadData()
   }
+}
 
-  func scrollViewDidScroll(_: UIScrollView) {
-    hideKeyboad()
+extension EntriesListController : UISearchControllerDelegate {
+  public func didDismissSearchController(_: UISearchController) {
+    repository.q = nil
+    reloadData()
   }
 }
 

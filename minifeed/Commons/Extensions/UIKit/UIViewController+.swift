@@ -34,7 +34,7 @@ extension UIViewController {
   }
 
   func instantiate<T:UIViewController>(_ type: T.Type) -> T {
-    return storyboard!.instantiateViewController(withIdentifier: S(T.self)) as! T
+    return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: S(T.self)) as! T
   }
 
   func present(_ controller: UIViewController, _ animated: Bool = true) {
