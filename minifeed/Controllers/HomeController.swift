@@ -1,33 +1,64 @@
 import Foundation
 import UIKit
+import SnapKit
 import SwifterSwift
 
 class HomeController : Controller, UITableViewDelegate, UITableViewDataSource {
-  @IBOutlet weak var tableView: UITableView!
-
   static var instance : HomeController?
 
-  override func viewDidLoad() {
-    super.viewDidLoad()
+  init() {
+    super.init(nibName: nil, bundle: nil)
+
     HomeController.instance = self
     tableView.dataSource = self
     tableView.delegate   = self
+
+    makeViews()
+    makeConstraints()
+    makeBindings()
+  }
+
+  required init?(coder aDecoder: NSCoder) {
+    fatalError()
+  }
+
+  private let tableView = UITableView(style: .grouped)
+  private let refreshControl = UIRefreshControl()
+  private let signOutButton = UIBarButtonItem(image: UIImage.find("signout"))
+
+  private func makeViews() {
+    navigationItem.title = t("app_name")
+    navigationItem.rightBarButtonItem = signOutButton
+
+    view.addSubview(tableView)
     tableView.addSubview(refreshControl)
-    reloadData()
+  }
+
+  private func makeConstraints() {
+    tableView.snp.makeConstraints {
+      $0.edges.equalToSuperview()
+    }
+  }
+
+  private func makeBindings() {
+    signOutButton.addTargetForAction(self, action: #selector(tapOnSignout))
+    refreshControl.addTarget(self, action: #selector(reloadData), for: .valueChanged)
   }
 
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-    (splitViewController as! MasterController).hideDetailController()
+
+    (splitViewController as! MasterController).hideDetailControllerIfNeeded()
   }
 
   func updateViews() {
     tableView.reloadData()
   }
 
-  var repository = NavRepository()
+  private let repository = NavRepository()
 
-  @objc func reloadData() {
+  @objc
+  func reloadData() {
     guard isSignedIn else { return }
 
     refreshControl.endRefreshing()
@@ -47,9 +78,11 @@ class HomeController : Controller, UITableViewDelegate, UITableViewDataSource {
     }.request().onError(showErrorIfNeeded).perform()
   }
 
-
-  private let refreshControl = UIRefreshControl().do {
-    $0.addTarget(self, action: #selector(reloadData), for: .valueChanged)
+  @objc
+  private func tapOnSignout() {
+    confirm(t("signout.confirm")) {
+      (self.splitViewController as! MasterController).signout()
+    }
   }
 
   enum Sections : Int {
@@ -103,12 +136,6 @@ class HomeController : Controller, UITableViewDelegate, UITableViewDataSource {
     controller.reloadData()
 
     pushToNav(controller)
-  }
-
-  @IBAction func clickOnSignout(_ sender: Any) {
-    confirm(t("signout.confirm")) {
-      (self.splitViewController as! MasterController).signout()
-    }
   }
 }
 

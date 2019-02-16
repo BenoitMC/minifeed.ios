@@ -58,70 +58,10 @@
             </objects>
             <point key="canvasLocation" x="1745" y="265"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="gx2-ck-JSu">
-            <objects>
-                <navigationController id="hN3-pL-bDb" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="0cy-kX-LNZ">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="psz-db-Rrg" kind="relationship" relationship="rootViewController" id="dXw-UE-SGw"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="otg-MN-ofT" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="881" y="-432"/>
-        </scene>
-        <!--Minifeed-->
-        <scene sceneID="Goo-Uj-3QW">
-            <objects>
-                <viewController storyboardIdentifier="HomeController" id="psz-db-Rrg" customClass="HomeController" customModule="minifeed" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="t9K-Cx-97d">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="gjz-6a-8aS">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="gjz-6a-8aS" firstAttribute="leading" secondItem="efu-mB-dSW" secondAttribute="leading" id="0ed-Cg-xMq"/>
-                            <constraint firstItem="gjz-6a-8aS" firstAttribute="top" secondItem="efu-mB-dSW" secondAttribute="top" id="QBY-P4-2p3"/>
-                            <constraint firstItem="efu-mB-dSW" firstAttribute="trailing" secondItem="gjz-6a-8aS" secondAttribute="trailing" id="iXU-Lh-tWY"/>
-                            <constraint firstItem="efu-mB-dSW" firstAttribute="bottom" secondItem="gjz-6a-8aS" secondAttribute="bottom" id="wUk-Z8-RqO"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="efu-mB-dSW"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Minifeed" id="Cxm-eJ-CGD">
-                        <barButtonItem key="backBarButtonItem" title=" " id="Xmc-73-2je"/>
-                        <barButtonItem key="rightBarButtonItem" image="signout" id="NDX-Gz-B70">
-                            <connections>
-                                <action selector="clickOnSignout:" destination="psz-db-Rrg" id="o2w-8H-TEo"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="tableView" destination="gjz-6a-8aS" id="4xC-cQ-4ca"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xmw-uc-S5G" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1745" y="-432"/>
-        </scene>
         <!--Master Controller-->
         <scene sceneID="xW4-W6-zET">
             <objects>
-                <splitViewController id="xLK-YA-K9w" customClass="MasterController" customModule="minifeed" customModuleProvider="target" sceneMemberID="viewController">
-                    <connections>
-                        <segue destination="hN3-pL-bDb" kind="relationship" relationship="masterViewController" id="Pg1-ja-ibO"/>
-                        <segue destination="BTb-nJ-2xd" kind="show" identifier="UselessSegue" id="TTo-b9-JPX"/>
-                    </connections>
-                </splitViewController>
+                <splitViewController id="xLK-YA-K9w" customClass="MasterController" customModule="minifeed" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vae-Zd-gv7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-71" y="-98"/>
@@ -250,7 +190,6 @@
         <image name="read" width="30" height="30"/>
         <image name="reader" width="23" height="23"/>
         <image name="safari" width="30" height="30"/>
-        <image name="signout" width="30" height="30"/>
         <image name="unstarred" width="30" height="30"/>
     </resources>
 </document>

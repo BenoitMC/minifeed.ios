@@ -62,7 +62,10 @@
 		633EC5F00C6C7101EA47C0F3 /* Pods_minifeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A2AFB06693C379A92F65C0B /* Pods_minifeed.framework */; };
 		ACFDE69FB9F8243382DB5F41 /* Do.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFDE6922F3139A458CC5ABA /* Do.swift */; };
 		ACFDE98ABB5D35FBEACA3625 /* UIField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFDEB8B7876CBFD9BBEE277 /* UIField+.swift */; };
+		ACFDEA801686CE46EA4BC0A3 /* UIPageViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFDE2927836F8942BAF6199 /* UIPageViewController+.swift */; };
+		ACFDEB3DDDCD739BAC50632F /* UINavigationController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFDEB02E309D07012809AE7 /* UINavigationController+.swift */; };
 		ACFDEB70BA976B903121F7B8 /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFDEB04FC4DB38DB23804E4 /* UIButton+.swift */; };
+		ACFDEF2B1520299C65A124D0 /* UIBarButtonItem+.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFDE12C9120A3BA9A33F9D4 /* UIBarButtonItem+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -161,7 +164,10 @@
 		60CBE59D1B8EBEEC5ABFC39C /* Pods-minifeedTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-minifeedTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-minifeedTests/Pods-minifeedTests.release.xcconfig"; sourceTree = "<group>"; };
 		6D9E60800262D9CFE7DFA068 /* Pods_minifeedTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_minifeedTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F2D39713838CE33533A16A2 /* Pods-minifeed.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-minifeed.debug.xcconfig"; path = "Pods/Target Support Files/Pods-minifeed/Pods-minifeed.debug.xcconfig"; sourceTree = "<group>"; };
+		ACFDE12C9120A3BA9A33F9D4 /* UIBarButtonItem+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+.swift"; sourceTree = "<group>"; };
+		ACFDE2927836F8942BAF6199 /* UIPageViewController+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIPageViewController+.swift"; sourceTree = "<group>"; };
 		ACFDE6922F3139A458CC5ABA /* Do.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Do.swift; sourceTree = "<group>"; };
+		ACFDEB02E309D07012809AE7 /* UINavigationController+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UINavigationController+.swift"; sourceTree = "<group>"; };
 		ACFDEB04FC4DB38DB23804E4 /* UIButton+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+.swift"; sourceTree = "<group>"; };
 		ACFDEB8B7876CBFD9BBEE277 /* UIField+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIField+.swift"; sourceTree = "<group>"; };
 		FF089672452A8D9E4C674073 /* Pods-minifeedUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-minifeedUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-minifeedUITests/Pods-minifeedUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -225,6 +231,9 @@
 				14D98DA920B8782300868F01 /* UIViewController+.swift */,
 				ACFDEB8B7876CBFD9BBEE277 /* UIField+.swift */,
 				ACFDEB04FC4DB38DB23804E4 /* UIButton+.swift */,
+				ACFDE12C9120A3BA9A33F9D4 /* UIBarButtonItem+.swift */,
+				ACFDEB02E309D07012809AE7 /* UINavigationController+.swift */,
+				ACFDE2927836F8942BAF6199 /* UIPageViewController+.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -710,6 +719,9 @@
 				ACFDE98ABB5D35FBEACA3625 /* UIField+.swift in Sources */,
 				ACFDEB70BA976B903121F7B8 /* UIButton+.swift in Sources */,
 				ACFDE69FB9F8243382DB5F41 /* Do.swift in Sources */,
+				ACFDEF2B1520299C65A124D0 /* UIBarButtonItem+.swift in Sources */,
+				ACFDEB3DDDCD739BAC50632F /* UINavigationController+.swift in Sources */,
+				ACFDEA801686CE46EA4BC0A3 /* UIPageViewController+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

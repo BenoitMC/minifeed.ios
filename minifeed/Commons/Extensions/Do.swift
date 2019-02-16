@@ -14,3 +14,4 @@ extension Do {
 
 extension UIView : Do {}
 extension UIViewController : Do {}
+extension UIBarItem : Do {}

@@ -1,3 +1,5 @@
+"app_name" = "Minifeed";
+
 "alert.ok"      = "OK";
 "alert.cancel"  = "Cancel";
 "alert.confirm" = "Confirm";
