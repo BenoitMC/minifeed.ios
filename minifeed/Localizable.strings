@@ -4,6 +4,9 @@
 "alert.cancel"  = "Cancel";
 "alert.confirm" = "Confirm";
 
+"home.entries" = "Entries";
+"home.feeds" = "Feeds";
+
 "entry_filter_types.all"     = "All";
 "entry_filter_types.unread"  = "Unread";
 "entry_filter_types.starred" = "Starred";

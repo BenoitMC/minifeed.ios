@@ -1,10 +1,10 @@
 import Foundation
 import UIKit
-import SwifterSwift
 import SnapKit
+import SwifterSwift
 
 class EntriesListController: Controller, UITableViewDelegate, UITableViewDataSource {
-  var categoryName: String?
+  var listName: String?
 
   override init() {
     super.init()
@@ -131,7 +131,7 @@ class EntriesListController: Controller, UITableViewDelegate, UITableViewDataSou
     tableView.deselect(indexPath)
     let controller = EntryMainController(entriesListController: self)
     controller.showEntryAtIndex(indexPath.row)
-    controller.title = categoryName
+    controller.title = listName
     showSplitViewDetail(controller)
   }
 }

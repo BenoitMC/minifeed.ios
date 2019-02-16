@@ -3,13 +3,14 @@ import UIKit
 import SnapKit
 import SwifterSwift
 
-class HomeController : Controller, UITableViewDelegate, UITableViewDataSource {
-  static var instance : HomeController?
+class HomeController : Controller {
+  static var instance: HomeController?
 
   override init() {
     super.init()
 
     HomeController.instance = self
+
     tableView.dataSource = self
     tableView.delegate   = self
 
@@ -83,6 +84,34 @@ class HomeController : Controller, UITableViewDelegate, UITableViewDataSource {
     }
   }
 
+  private func showEntries(at indexPath: IndexPath) {
+    let section = Sections(rawValue: indexPath.section)!
+    let controller = EntriesListController()
+
+    switch section {
+    case .special:
+      let item = repository.nav!.specialCategories[indexPath.row]
+      controller.repository.type = item.type
+      controller.listName = item.name
+    case .categories:
+      let item = repository.nav!.categories[indexPath.row]
+      controller.repository.categoryId = item .id
+      controller.listName = item.name
+    }
+
+    controller.reloadData()
+
+    pushToNav(controller)
+  }
+
+  private func showFeeds(at indexPath: IndexPath) {
+    let category = repository.nav!.categories[indexPath.row]
+    let controller = FeedsListController(category: category)
+    pushToNav(controller)
+  }
+}
+
+extension HomeController : UITableViewDelegate, UITableViewDataSource {
   enum Sections : Int {
     case special, categories
   }
@@ -116,24 +145,23 @@ class HomeController : Controller, UITableViewDelegate, UITableViewDataSource {
 
   func tableView(_: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselect(indexPath)
+    showEntries(at: indexPath)
+  }
+
+  public func tableView(_: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
     let section = Sections(rawValue: indexPath.section)!
-    let controller = EntriesListController()
 
+    guard case .categories = section else { return [] }
 
-    switch section {
-    case .special:
-      let item = repository.nav!.specialCategories[indexPath.row]
-      controller.repository.type = item.type
-      controller.categoryName = item.name
-    case .categories:
-      let item = repository.nav!.categories[indexPath.row]
-      controller.repository.categoryId = item .id
-      controller.categoryName = item.name
+    let feedsAction = UITableViewRowAction(title: t("home.feeds")) {
+      self.showFeeds(at: indexPath)
     }
 
-    controller.reloadData()
+    let entriesAction = UITableViewRowAction(title: t("home.entries"), background: .iosBlue) {
+      self.showEntries(at: indexPath)
+    }
 
-    pushToNav(controller)
+    return [entriesAction, feedsAction]
   }
 }
 
