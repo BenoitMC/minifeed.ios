@@ -138,10 +138,7 @@ extension EntryMainController : UIPageViewControllerDelegate, UIPageViewControll
   }
 
   func instantiateEntryDetailsController(_ index: Int) -> EntryDetailsController {
-    let controller = instantiate(EntryDetailsController.self)
-    controller.entry = entries[index]
-    controller.webview.navigationDelegate = self
-    return controller
+    return EntryDetailsController(entry: entries[index], navigationDelegate: self)
   }
 
   func showEntryAtIndex(_ index: Int) {

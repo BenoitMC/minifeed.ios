@@ -10,54 +10,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Entry Details Controller-->
-        <scene sceneID="EKN-ov-ft4">
-            <objects>
-                <viewController storyboardIdentifier="EntryDetailsController" id="Rrv-7l-Yjo" customClass="EntryDetailsController" customModule="minifeed" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="xaG-5N-tDW">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="2dd-My-WG6">
-                                <rect key="frame" x="10" y="30" width="355" height="583"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EntryDetailsController" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ehf-xr-ZZC">
-                                        <rect key="frame" x="0.0" y="0.0" width="355" height="26.5"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="infos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DpH-LN-KGj">
-                                        <rect key="frame" x="0.0" y="36.5" width="355" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8vq-j2-SpD">
-                                        <rect key="frame" x="0.0" y="67" width="355" height="516"/>
-                                    </view>
-                                </subviews>
-                            </stackView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="2dd-My-WG6" firstAttribute="leading" secondItem="DWf-vP-fFW" secondAttribute="leading" constant="10" id="F7s-zW-0Wu"/>
-                            <constraint firstItem="DWf-vP-fFW" firstAttribute="bottom" secondItem="2dd-My-WG6" secondAttribute="bottom" constant="10" id="IZ5-F5-o8Z"/>
-                            <constraint firstItem="DWf-vP-fFW" firstAttribute="trailing" secondItem="2dd-My-WG6" secondAttribute="trailing" constant="10" id="Mny-jk-Vrm"/>
-                            <constraint firstItem="2dd-My-WG6" firstAttribute="top" secondItem="DWf-vP-fFW" secondAttribute="top" constant="10" id="NzZ-rO-DWZ"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="DWf-vP-fFW"/>
-                    </view>
-                    <connections>
-                        <outlet property="infos" destination="DpH-LN-KGj" id="YFU-v5-nQ1"/>
-                        <outlet property="label" destination="ehf-xr-ZZC" id="Pke-bg-g9q"/>
-                        <outlet property="webviewContainer" destination="8vq-j2-SpD" id="3ap-Oc-rUC"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6H8-IL-W4V" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1745" y="265"/>
-        </scene>
         <!--Master Controller-->
         <scene sceneID="xW4-W6-zET">
             <objects>
@@ -176,7 +128,6 @@
                         <outlet property="pageContainer" destination="k3F-AH-tMr" id="5FT-tV-jML"/>
                         <outlet property="toggleReadButton" destination="1Qz-a2-31Y" id="jhe-r2-3iz"/>
                         <outlet property="toggleStarredButton" destination="JO4-dC-tip" id="2s4-iS-zzG"/>
-                        <segue destination="Rrv-7l-Yjo" kind="show" identifier="UselessSegue" id="fA1-7N-nOR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kFZ-3F-ebW" userLabel="First Responder" sceneMemberID="firstResponder"/>
