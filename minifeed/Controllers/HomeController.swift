@@ -139,20 +139,24 @@ extension HomeController : UITableViewDelegate, UITableViewDataSource {
     showEntries(at: indexPath)
   }
 
-  public func tableView(_: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-    let section = Sections(rawValue: indexPath.section)!
+  public func tableView(_: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+    guard case .categories = Sections(rawValue: indexPath.section)! else { return nil }
 
-    guard case .categories = section else { return [] }
-
-    let feedsAction = UITableViewRowAction(title: t("home.feeds")) {
+    let action = UIContextualAction(title: t("home.feeds")) {
       self.showFeeds(at: indexPath)
     }
 
-    let entriesAction = UITableViewRowAction(title: t("home.entries"), background: .iosBlue) {
+    return UISwipeActionsConfiguration(actions: [action])
+  }
+
+  public func tableView(_: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+    guard case .categories = Sections(rawValue: indexPath.section)! else { return nil }
+
+    let action = UIContextualAction(title: t("home.entries")) {
       self.showEntries(at: indexPath)
     }
 
-    return [entriesAction, feedsAction]
+    return UISwipeActionsConfiguration(actions: [action])
   }
 }
 
