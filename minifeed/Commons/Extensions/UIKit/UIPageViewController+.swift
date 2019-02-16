@@ -6,7 +6,7 @@ extension UIPageViewController {
     guard let currentController = viewControllers?[0] else { return }
     guard let newController = dataSource?.pageViewController(self, viewControllerBefore: currentController) else { return }
 
-    setViewControllers([newController], direction: .reverse, animated: true) { finished in
+    setViewControllers([newController], direction: .reverse, animated: animated) { finished in
       if finished { completion?() }
     }
   }
@@ -15,7 +15,7 @@ extension UIPageViewController {
     guard let currentController = viewControllers?[0] else { return }
     guard let newController = dataSource?.pageViewController(self, viewControllerAfter: currentController) else { return }
 
-    setViewControllers([newController], direction: .forward, animated: true) { finished in
+    setViewControllers([newController], direction: .forward, animated: animated) { finished in
       if finished { completion?() }
     }
   }
