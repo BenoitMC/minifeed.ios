@@ -140,7 +140,7 @@ extension HomeController : UITableViewDelegate, UITableViewDataSource {
   }
 
   public func tableView(_: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-    guard case .categories = Sections(rawValue: indexPath.section)! else { return nil }
+    guard case .categories = Sections(rawValue: indexPath.section)! else { return UISwipeActionsConfiguration() }
 
     let action = UIContextualAction(title: t("home.feeds")) {
       self.showFeeds(at: indexPath)
@@ -150,7 +150,7 @@ extension HomeController : UITableViewDelegate, UITableViewDataSource {
   }
 
   public func tableView(_: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-    guard case .categories = Sections(rawValue: indexPath.section)! else { return nil }
+    guard case .categories = Sections(rawValue: indexPath.section)! else { return UISwipeActionsConfiguration() }
 
     let action = UIContextualAction(title: t("home.entries")) {
       self.showEntries(at: indexPath)
