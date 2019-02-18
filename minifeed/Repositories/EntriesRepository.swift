@@ -29,9 +29,7 @@ class EntriesRepository {
     return commonRequest(.post, "/api/v1/entries/mark-all-as-read")
   }
 
-  private
-
-  func commonRequest(_ method: HTTPMethod, _ url: String) -> ApiRequest {
+  private func commonRequest(_ method: HTTPMethod, _ url: String) -> ApiRequest {
     return ApiRequest(method, url, params).onSuccess {
       let entries = $0.json["entries"].arrayValue.map { Entry($0) }
       self.entriesPublish.onNext(entries)
