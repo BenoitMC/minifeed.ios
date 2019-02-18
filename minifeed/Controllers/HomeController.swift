@@ -86,7 +86,8 @@ class HomeController : Controller {
       controller.listName = item.name
     case .categories:
       let item = nav!.categories[indexPath.row]
-      controller.repository.categoryId = item .id
+      controller.repository.categoryId = item.id
+      controller.repository.type = item.counter == 0 ? .all : .unread
       controller.listName = item.name
     }
 

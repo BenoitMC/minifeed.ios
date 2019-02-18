@@ -67,6 +67,7 @@ extension FeedsListController : UITableViewDataSource, UITableViewDelegate {
     let controller = EntriesListController()
     controller.listName = feed.name
     controller.repository.feedId = feed.id
+    controller.repository.type = feed.counter == 0 ? .all : .unread
     controller.reloadData()
 
     pushToNav(controller)
