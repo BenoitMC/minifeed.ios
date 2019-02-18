@@ -22,7 +22,7 @@ class EntryDetailsController : Controller {
   private let stack = UIStackView().do {
     $0.axis = .vertical
     $0.distribution = .fill
-    $0.alignment = .fill
+    $0.alignment = .center
     $0.spacing = 5
   }
 
@@ -46,7 +46,18 @@ class EntryDetailsController : Controller {
 
   private func makeConstraints() {
     stack.snp.makeConstraints {
-      $0.edges.equalToSuperview().inset(10)
+      $0.left.right.bottom.equalToSuperview()
+      $0.top.equalToSuperview().offset(10)
+    }
+
+    for element in [label, infos] {
+      element.snp.makeConstraints {
+        $0.width.equalToSuperview().offset(-24)
+      }
+    }
+
+    webview.snp.makeConstraints {
+      $0.width.equalToSuperview()
     }
   }
 

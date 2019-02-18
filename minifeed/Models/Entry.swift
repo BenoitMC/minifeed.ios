@@ -46,10 +46,14 @@ class Entry : Model {
             padding: 0;
             font-family: -apple-system;
           }
+          body { margin: 12px; }
           img {
             max-width: 100%;
             height: auto !important;
             width: auto !important;
+          }
+          iframe {
+            max-width: 100% !important;
           }
         </style>
       </head>
