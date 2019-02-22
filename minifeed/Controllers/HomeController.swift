@@ -91,7 +91,7 @@ class HomeController : Controller {
       controller.listName = item.name
     }
 
-    controller.reloadData()
+    controller.loadData()
 
     pushToNav(controller)
   }

@@ -29,5 +29,6 @@
             "published_at_human": "2 hours",
             "url": "https://example.org/2"
         }
-    ]
+    ],
+    "is_last_page": false
 }

@@ -7,6 +7,7 @@ import RxSwift
 class EntriesListController: Controller {
   var listName: String?
   var entries: [Entry] = []
+  var isLastPage = false
 
   override init() {
     super.init()
@@ -19,6 +20,7 @@ class EntriesListController: Controller {
     makeViews()
     makeConstraints()
     makeBindings()
+    showBlankView()
   }
 
   required init?(coder: NSCoder) { fatalError() }
@@ -48,6 +50,7 @@ class EntriesListController: Controller {
     tableView.addSubview(refreshControl)
     navigationItem.searchController = searchController
     navigationItem.hidesSearchBarWhenScrolling = true
+    tableView.separatorInset = UIEdgeInsets(inset: 28)
   }
 
   private func makeConstraints() {
@@ -62,16 +65,11 @@ class EntriesListController: Controller {
     markAllAsReadButton.addTargetForAction(self, action: #selector(tapOnMarkAllAsRead))
 
     repository.entriesObservable.subscribe(onNext: { [weak self] in
-      self?.entries = $0
+      self?.entries += $0.entries
+      self?.isLastPage = $0.isLastPage
       self?.updateViews()
       Flash.close()
     }).disposed(by: disposeBag)
-  }
-
-  override func viewDidLoad() {
-    super.viewDidLoad()
-
-    updateViews()
   }
 
   func updateViews() {
@@ -83,19 +81,34 @@ class EntriesListController: Controller {
 
     tableView.reloadData()
 
-    tableView.separatorInset = UIEdgeInsets(inset: 28)
-
     typesSegments.selectedSegmentIndex = EntryFilterTypes.allCases.index(of: repository.type)!
   }
 
-  @objc
-  func reloadData() {
+  private func showBlankView() {
+    tableView.tableFooterView = UITableViewCell().do { $0.height = tableView.height }
+    tableView.reloadData()
+  }
+
+  func loadData() {
     refreshControl.endRefreshing()
     Flash.progress()
     repository.get().onError(showErrorIfNeeded).perform()
   }
 
+  @objc
+  private func reloadData() {
+    resetEntries()
+    loadData()
+  }
+
+  private func resetEntries() {
+    entries = []
+    repository.page = 1
+    showBlankView()
+  }
+
   private func markAllAsRead() {
+    resetEntries()
     Flash.progress()
     repository.markAllAsRead().onError(showErrorIfNeeded).onSuccess { _ in
       NavRepository.instance.reload()
@@ -138,6 +151,15 @@ extension EntriesListController : UITableViewDelegate, UITableViewDataSource {
     controller.showEntryAtIndex(indexPath.row)
     controller.title = listName
     showSplitViewDetail(controller)
+  }
+
+  func tableView(_: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+    if isLastPage { return }
+
+    if indexPath.row == entries.count-1 {
+      repository.page += 1
+      loadData()
+    }
   }
 }
 

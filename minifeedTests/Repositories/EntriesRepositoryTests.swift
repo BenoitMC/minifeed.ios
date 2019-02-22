@@ -13,23 +13,25 @@ class EntriesRepositoryTests : TestCase {
     stubWithFixture("entries")
 
     let repository = EntriesRepository()
-    var entries = [Entry]()
+    var result : EntriesRepository.Result?
 
     asyncExpectation { e in
-      repository.entriesObservable.subscribe(onNext: { entries = $0 }).disposed(by: disposeBag)
+      repository.entriesObservable.subscribe(onNext: { result = $0 }).disposed(by: disposeBag)
       repository.get().onResponse { _ in e.fulfill() }.perform()
     }
 
-    XCTAssertEqual(entries.count, 2)
-    XCTAssertEqual(entries[0].name, "Entry 1 name")
-    XCTAssertEqual(entries[1].name, "Entry 2 name")
+    XCTAssertNotNil(result)
+    XCTAssertFalse(result!.isLastPage)
+    XCTAssertEqual(result!.entries.count, 2)
+    XCTAssertEqual(result!.entries[0].name, "Entry 1 name")
+    XCTAssertEqual(result!.entries[1].name, "Entry 2 name")
   }
 
   func test_get_request_should_add_query_params() {
     testRequest { request in
       XCTAssertEqual(request.httpMethod, "GET")
       XCTAssertEqual(request.url!.relativePath, "/api/v1/entries")
-      XCTAssertEqual(request.url!.query, "category_id=cid&feed_id=fid&q=search&type=starred")
+      XCTAssertEqual(request.url!.query, "category_id=cid&feed_id=fid&page=1&q=search&type=starred")
     }
 
     let repository = EntriesRepository()
@@ -47,7 +49,7 @@ class EntriesRepositoryTests : TestCase {
     testRequest { request in
       XCTAssertEqual(request.httpMethod, "POST")
       XCTAssertEqual(request.url!.relativePath, "/api/v1/entries/mark-all-as-read")
-      XCTAssertEqual(request.httpBodyString, "category_id=cid&feed_id=fid&q=search&type=starred")
+      XCTAssertEqual(request.httpBodyString, "category_id=cid&feed_id=fid&page=1&q=search&type=starred")
     }
 
     let repository = EntriesRepository()
