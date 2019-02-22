@@ -140,21 +140,11 @@ extension HomeController : UITableViewDelegate, UITableViewDataSource {
     showEntries(at: indexPath)
   }
 
-  public func tableView(_: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+  public func tableView(_: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
     guard case .categories = Sections(rawValue: indexPath.section)! else { return UISwipeActionsConfiguration() }
 
     let action = UIContextualAction(title: t("home.feeds")) {
       self.showFeeds(at: indexPath)
-    }
-
-    return UISwipeActionsConfiguration(actions: [action])
-  }
-
-  public func tableView(_: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-    guard case .categories = Sections(rawValue: indexPath.section)! else { return UISwipeActionsConfiguration() }
-
-    let action = UIContextualAction(title: t("home.entries")) {
-      self.showEntries(at: indexPath)
     }
 
     return UISwipeActionsConfiguration(actions: [action])
