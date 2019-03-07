@@ -25,12 +25,12 @@ class EntryMainController : Controller {
   required init?(coder: NSCoder) { fatalError() }
 
   private let toolbar             = UIToolbar()
-  private let previousButton      = UIBarButtonItem(image: UIImage.find("previous"))
-  private let toggleReadButton    = UIBarButtonItem(image: UIImage.find("read"))
-  private let toggleStarredButton = UIBarButtonItem(image: UIImage.find("unstarred"))
-  private let readerButton        = UIBarButtonItem(image: UIImage.find("reader"))
-  private let safariButton        = UIBarButtonItem(image: UIImage.find("safari"))
-  private let nextButton          = UIBarButtonItem(image: UIImage.find("next"))
+  private let previousButton      = UIBarButtonItem(image: "previous")
+  private let toggleReadButton    = UIBarButtonItem(image: "read")
+  private let toggleStarredButton = UIBarButtonItem(image: "unstarred")
+  private let readerButton        = UIBarButtonItem(image: "reader")
+  private let safariButton        = UIBarButtonItem(image: "safari")
+  private let nextButton          = UIBarButtonItem(image: "next")
 
   private func makeViews() {
     view.backgroundColor = .white

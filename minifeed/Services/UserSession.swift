@@ -18,10 +18,10 @@ class UserSession {
       .post(url, params)
       .onResponse { r in
         if let token = r.json["current_user"]["auth_token"].string {
-          callback(Response.success(token: token))
+          callback(.success(token: token))
         }
         else {
-          callback(Response.error(message: r.errorMessage))
+          callback(.error(message: r.errorMessage))
         }
       }
       .perform()

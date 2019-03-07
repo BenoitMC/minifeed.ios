@@ -119,9 +119,7 @@ class EntriesListController: Controller {
 
   @objc
   func onTypeChange() {
-    if typesSegments.selectedSegmentIndex == 0 { repository.type = .all     }
-    if typesSegments.selectedSegmentIndex == 1 { repository.type = .unread  }
-    if typesSegments.selectedSegmentIndex == 2 { repository.type = .starred }
+    repository.type = EntryFilterTypes.allCases[typesSegments.selectedSegmentIndex]
 
     reloadData()
   }
