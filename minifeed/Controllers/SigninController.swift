@@ -92,9 +92,7 @@ class SigninController : Controller {
         ApiRequest.baseUrl = url
         ApiRequest.defaultHeaders["Authorization"] = "Bearer " + token
         NavRepository.instance.reload()
-        Flash.success {
-          self.dismiss()
-        }
+        self.dismiss()
 
       case .error(let message):
         Flash.error(message)
