@@ -60,7 +60,7 @@
 		633EC5F00C6C7101EA47C0F3 /* Pods_minifeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A2AFB06693C379A92F65C0B /* Pods_minifeed.framework */; };
 		ACFDE69FB9F8243382DB5F41 /* Do.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFDE6922F3139A458CC5ABA /* Do.swift */; };
 		ACFDE896AEE709AC89739765 /* FeedsListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFDE31AB7783BA0064B36D4 /* FeedsListController.swift */; };
-		ACFDE98ABB5D35FBEACA3625 /* UIField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFDEB8B7876CBFD9BBEE277 /* UIField+.swift */; };
+		ACFDE98ABB5D35FBEACA3625 /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFDEB8B7876CBFD9BBEE277 /* UITextField+.swift */; };
 		ACFDE98EEDE94EB9DFC20F6B /* UIContextualAction+.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFDE514327E08DE9B9DEA93 /* UIContextualAction+.swift */; };
 		ACFDEA5B52C77903294BE6E8 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFDEFF56D1F57D17EE5E44B /* Style.swift */; };
 		ACFDEA801686CE46EA4BC0A3 /* UIPageViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFDE2927836F8942BAF6199 /* UIPageViewController+.swift */; };
@@ -170,7 +170,7 @@
 		ACFDE6922F3139A458CC5ABA /* Do.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Do.swift; sourceTree = "<group>"; };
 		ACFDEB02E309D07012809AE7 /* UINavigationController+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UINavigationController+.swift"; sourceTree = "<group>"; };
 		ACFDEB04FC4DB38DB23804E4 /* UIButton+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+.swift"; sourceTree = "<group>"; };
-		ACFDEB8B7876CBFD9BBEE277 /* UIField+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIField+.swift"; sourceTree = "<group>"; };
+		ACFDEB8B7876CBFD9BBEE277 /* UITextField+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
 		ACFDEFF56D1F57D17EE5E44B /* Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		FF089672452A8D9E4C674073 /* Pods-minifeedUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-minifeedUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-minifeedUITests/Pods-minifeedUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -231,7 +231,7 @@
 				14D98DAD20B8814A00868F01 /* UITableView+.swift */,
 				1405F0F120C0596E0071E5B8 /* UIView+.swift */,
 				14D98DA920B8782300868F01 /* UIViewController+.swift */,
-				ACFDEB8B7876CBFD9BBEE277 /* UIField+.swift */,
+				ACFDEB8B7876CBFD9BBEE277 /* UITextField+.swift */,
 				ACFDEB04FC4DB38DB23804E4 /* UIButton+.swift */,
 				ACFDE12C9120A3BA9A33F9D4 /* UIBarButtonItem+.swift */,
 				ACFDEB02E309D07012809AE7 /* UINavigationController+.swift */,
@@ -723,7 +723,7 @@
 				141FFEC6210218D7005A0FCD /* Config.swift in Sources */,
 				14D2E83120C1A17B00877763 /* EntryFilterTypes.swift in Sources */,
 				146ECC1920B7182100D90C6F /* API.swift in Sources */,
-				ACFDE98ABB5D35FBEACA3625 /* UIField+.swift in Sources */,
+				ACFDE98ABB5D35FBEACA3625 /* UITextField+.swift in Sources */,
 				ACFDEB70BA976B903121F7B8 /* UIButton+.swift in Sources */,
 				ACFDE69FB9F8243382DB5F41 /* Do.swift in Sources */,
 				ACFDEF2B1520299C65A124D0 /* UIBarButtonItem+.swift in Sources */,
