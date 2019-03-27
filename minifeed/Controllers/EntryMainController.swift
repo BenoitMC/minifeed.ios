@@ -189,7 +189,7 @@ extension EntryMainController : UIPageViewControllerDelegate, UIPageViewControll
 
   func getIndex(_ viewController: UIViewController) -> Int {
     let viewController = viewController as! EntryDetailsController
-    return entries.index(of: viewController.entry)!
+    return entries.firstIndex(of: viewController.entry)!
   }
 
   func instantiateEntryDetailsController(_ index: Int) -> EntryDetailsController {

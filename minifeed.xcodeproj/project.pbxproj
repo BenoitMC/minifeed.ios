@@ -507,7 +507,7 @@
 				TargetAttributes = {
 					142BD72420A8995600E5B9FC = {
 						CreatedOnToolsVersion = 9.3.1;
-						LastSwiftMigration = 1000;
+						LastSwiftMigration = 1020;
 					};
 					142BD73820A8995800E5B9FC = {
 						CreatedOnToolsVersion = 9.3.1;
@@ -617,7 +617,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-minifeedTests/Pods-minifeedTests-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-minifeedTests/Pods-minifeedTests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Mockingjay/Mockingjay.framework",
 				"${BUILT_PRODUCTS_DIR}/URITemplate/URITemplate.framework",
 			);
@@ -628,7 +628,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-minifeedTests/Pods-minifeedTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-minifeedTests/Pods-minifeedTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		7F7C0CE63356BB5110B81CDD /* [CP] Embed Pods Frameworks */ = {
@@ -637,7 +637,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-minifeed/Pods-minifeed-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-minifeed/Pods-minifeed-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Bugsnag/Bugsnag.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
@@ -664,7 +664,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-minifeed/Pods-minifeed-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-minifeed/Pods-minifeed-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		815BAE99506E1FC7073DBADA /* [CP] Check Pods Manifest.lock */ = {
@@ -915,7 +915,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.agilidee.minifeed;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -937,7 +937,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.agilidee.minifeed;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

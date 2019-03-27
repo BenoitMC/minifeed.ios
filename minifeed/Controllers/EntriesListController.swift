@@ -81,7 +81,7 @@ class EntriesListController: Controller {
 
     tableView.reloadData()
 
-    typesSegments.selectedSegmentIndex = EntryFilterTypes.allCases.index(of: repository.type)!
+    typesSegments.selectedSegmentIndex = EntryFilterTypes.allCases.firstIndex(of: repository.type)!
   }
 
   private func showBlankView() {

@@ -1,6 +1,6 @@
 PODS:
   - Alamofire (4.8.1)
-  - Bugsnag (5.17.3)
+  - Bugsnag (5.19.1)
   - IQKeyboardManagerSwift (6.2.0)
   - Mockingjay (2.0.1):
     - Mockingjay/Core (= 2.0.1)
@@ -9,11 +9,11 @@ PODS:
     - URITemplate (~> 2.0)
   - Mockingjay/XCTest (2.0.1):
     - Mockingjay/Core
-  - RxAtomic (4.4.1)
-  - RxCocoa (4.4.1):
-    - RxSwift (~> 4.0)
-  - RxSwift (4.4.1):
-    - RxAtomic (~> 4.4)
+  - RxAtomic (4.4.2)
+  - RxCocoa (4.4.2):
+    - RxSwift (>= 4.4.2, ~> 4.4)
+  - RxSwift (4.4.2):
+    - RxAtomic (>= 4.4.2, ~> 4.4)
   - SnapKit (4.2.0)
   - SVProgressHUD (2.2.5)
   - SwifterSwift (4.6.0):
@@ -65,12 +65,12 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
-  Bugsnag: a56a5204ebd35e44e56c1f703824705b1d4b5b97
+  Bugsnag: 96c6dff50bd5ca461603a7aaf22b8406c4fb32ca
   IQKeyboardManagerSwift: b07ccf9d8cafe993dcd6cb794eb4ba34611a0c4e
   Mockingjay: 11a621880d2887f1775bdcf824341eb68f218450
-  RxAtomic: f8d6adc1ccb87a767811269e4875887bc74dbf19
-  RxCocoa: 2f35a76bf8887872e28a1914112395b11b8e0e64
-  RxSwift: 92fcf68dfef21f3e2ab1965363d9e7b3d787597e
+  RxAtomic: d00e97c10db88c6f08540e0bf2752fc5a2404167
+  RxCocoa: 477990dc3b4c3ff55fb0ac77e1cc06244e0aaec8
+  RxSwift: 74c29b693c8e42b0f64400e8b06564575742d649
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwifterSwift: 812ffec6f301922f5430e75be3f2939ea3a80024
@@ -79,4 +79,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 47eb6a9534676ff199fbf6eabdf9591ffc6c18e1
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.6.1
