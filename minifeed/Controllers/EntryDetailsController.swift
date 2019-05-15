@@ -27,6 +27,7 @@ class EntryDetailsController : Controller {
   }
 
   private let label = UILabel().do {
+    $0.numberOfLines = 2
     $0.font = UIFont.boldSystemFont(ofSize: 22)
   }
 
