@@ -51,6 +51,7 @@ class EntriesListController: Controller {
     navigationItem.searchController = searchController
     navigationItem.hidesSearchBarWhenScrolling = true
     tableView.separatorInset = UIEdgeInsets(inset: 28)
+    extendedLayoutIncludesOpaqueBars = true
   }
 
   private func makeConstraints() {
