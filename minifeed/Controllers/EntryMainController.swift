@@ -30,6 +30,7 @@ class EntryMainController : Controller {
   private let toggleStarredButton = UIBarButtonItem(image: "unstarred")
   private let readerButton        = UIBarButtonItem(image: "reader")
   private let safariButton        = UIBarButtonItem(image: "safari")
+  private let browserButton       = UIBarButtonItem(image: "windows")
   private let nextButton          = UIBarButtonItem(image: "next")
 
   private func makeViews() {
@@ -51,6 +52,8 @@ class EntryMainController : Controller {
       readerButton,
       UIBarButtonItem.flexibleSpace(),
       safariButton,
+      UIBarButtonItem.flexibleSpace(),
+      browserButton,
       UIBarButtonItem.flexibleSpace(),
       nextButton,
       UIBarButtonItem.fixedSpace(-12)
@@ -74,6 +77,7 @@ class EntryMainController : Controller {
     toggleStarredButton.action = #selector(tapOnStarredToggle)
     readerButton.action        = #selector(tapOnReader)
     safariButton.action        = #selector(tapOnSafari)
+    browserButton.action       = #selector(tapOnBrowser)
     nextButton.action          = #selector(tapOnNext)
   }
 
@@ -157,6 +161,12 @@ class EntryMainController : Controller {
       self.updateViews()
       self.markAsReadIfNeeded()
     }
+  }
+
+  @objc
+  private func tapOnBrowser() {
+    guard let url = entry.url?.url else { return }
+    UIApplication.shared.open(url)
   }
 
   @objc
