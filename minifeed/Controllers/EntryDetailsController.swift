@@ -13,6 +13,7 @@ class EntryDetailsController : Controller {
 
     makeViews()
     makeConstraints()
+    makeBindings()
   }
 
   required init?(coder: NSCoder) { fatalError() }
@@ -62,6 +63,12 @@ class EntryDetailsController : Controller {
     }
   }
 
+  private func makeBindings() {
+    let gr = UITapGestureRecognizer(target: self, action: #selector(toggleTitleLines))
+    label.isUserInteractionEnabled = true
+    label.addGestureRecognizer(gr)
+  }
+
   override func viewDidLoad() {
     super.viewDidLoad()
 
@@ -72,6 +79,11 @@ class EntryDetailsController : Controller {
   private func updateViews() {
     label.text = entry.name
     infos.text = entry.infos
+  }
+
+  @objc
+  private func toggleTitleLines() {
+    label.numberOfLines = label.numberOfLines == 0 ? 2 : 0
   }
 }
 
