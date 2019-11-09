@@ -80,7 +80,11 @@ class SigninController : Controller {
 
   @objc
   private func tapOnSubmit() {
-    guard let url = url.text, let email = email.text, let password = password.text else {
+    guard
+      let url = url.text?.trimmed.presence,
+      let email = email.text?.trimmed.presence,
+      let password = password.text?.trimmed.presence
+    else {
       return
     }
 
