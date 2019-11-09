@@ -24,7 +24,7 @@ class HomeController : Controller {
 
   private func makeViews() {
     navigationItem.title = t("app_name")
-    navigationItem.leftBarButtonItem = menuButton
+    navigationItem.rightBarButtonItem = menuButton
 
     view.addSubview(tableView)
     tableView.addSubview(refreshControl)
