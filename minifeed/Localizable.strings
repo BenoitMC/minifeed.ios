@@ -13,7 +13,16 @@
 "entries_list.mark_all_as_read.confirm" = "Mark all as read ?";
 "entries_list.empty" = "Empty...";
 
-"signout.confirm" = "Do you really want to sign out ?";
+"menu.title" = "Menu";
+"menu.add_bookmark" = "Add a bookmark";
+"menu.sign_out" = "Sign out";
+
+"add_bookmark.title" = "Add a bookmark";
+"add_bookmark.url" = "URL";
+"add_bookmark.cancel" = "Cancel";
+"add_bookmark.add" = "Add";
+
+"sign_out.confirm" = "Do you really want to sign out ?";
 
 "signin.url"         = "URL";
 "signin.email"       = "Email";

@@ -82,12 +82,12 @@ class FeedCell : UITableViewCell {
 
     imageView!.image = UIImage.find("nav-feed").filled(withColor: UIColor.iosBlue)
 
-    _ = textLabel!.do {
+    textLabel!.do {
       $0.font = $0.font.withSize(17)
       $0.text = feed.name
     }
 
-    _ = detailTextLabel!.do {
+    detailTextLabel!.do {
       $0.font = $0.font.withSize(17)
       $0.text = String(feed.counter)
       $0.isHidden = (feed.counter == 0)

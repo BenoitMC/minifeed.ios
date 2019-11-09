@@ -20,11 +20,11 @@ class HomeController : Controller {
 
   private let tableView = UITableView(style: .grouped)
   private let refreshControl = UIRefreshControl()
-  private let signOutButton = UIBarButtonItem(image: UIImage.find("signout"))
+  private let menuButton = UIBarButtonItem(image: "menu")
 
   private func makeViews() {
     navigationItem.title = t("app_name")
-    navigationItem.rightBarButtonItem = signOutButton
+    navigationItem.leftBarButtonItem = menuButton
 
     view.addSubview(tableView)
     tableView.addSubview(refreshControl)
@@ -37,7 +37,7 @@ class HomeController : Controller {
   }
 
   private func makeBindings() {
-    signOutButton.addTargetForAction(self, action: #selector(tapOnSignout))
+    menuButton.addTargetForAction(self, action: #selector(tapOnMenu))
     refreshControl.addTarget(self, action: #selector(reloadData), for: .valueChanged)
 
     NavRepository.instance.navObservable.subscribe(onNext: { [weak self] in
@@ -69,10 +69,8 @@ class HomeController : Controller {
   }
 
   @objc
-  private func tapOnSignout() {
-    confirm(t("signout.confirm")) {
-      (self.splitViewController as! MasterController).signout()
-    }
+  private func tapOnMenu() {
+    pushToNav(MenuController())
   }
 
   private func showEntries(at indexPath: IndexPath) {
@@ -176,7 +174,7 @@ class NavItemCell : UITableViewCell {
   }
 
   private func setup(_ image: UIImage?, _ name: String?, _ counter: Int) {
-    imageView!.image = image?.filled(withColor: UIColor.iosBlue)
+    imageView!.image = image?.filled(withColor: .iosBlue)
 
     self.textLabel!.text           = name
     self.detailTextLabel!.text     = String(counter)

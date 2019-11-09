@@ -44,7 +44,8 @@ class MasterController : UISplitViewController {
     ApiRequest.defaultHeaders["Authorization"] = "Bearer " + Preferences.get("auth_token")!
   }
 
-  func signout() {
+  func signOut() {
+    navController.popToRootViewController(animated: false)
     Preferences.clear()
     present(SigninController())
   }

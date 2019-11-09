@@ -7,6 +7,8 @@ class SigninController : Controller {
   override init() {
     super.init()
 
+    modalPresentationStyle = .overFullScreen
+
     makeViews()
     makeConstraints()
     makeBindings()
