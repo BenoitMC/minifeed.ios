@@ -40,6 +40,10 @@
 		14595C4220C1EAF600E974EF /* EntryMainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14595C4120C1EAF600E974EF /* EntryMainController.swift */; };
 		146ECC1920B7182100D90C6F /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146ECC1820B7182100D90C6F /* API.swift */; };
 		148BDC2520B1D3EF00DA75E5 /* EntryDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148BDC2420B1D3EF00DA75E5 /* EntryDetailsController.swift */; };
+		14966B99239BE296009B5498 /* Int+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14966B98239BE296009B5498 /* Int+.swift */; };
+		14966B9B239BE313009B5498 /* UIEdgeInsets+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14966B9A239BE313009B5498 /* UIEdgeInsets+.swift */; };
+		14966B9D239BE35C009B5498 /* UIAlertController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14966B9C239BE35C009B5498 /* UIAlertController+.swift */; };
+		14966B9F239BE406009B5498 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14966B9E239BE406009B5498 /* WebKit.framework */; };
 		14A57CF120BC57BA008BEF1C /* NavTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A57CF020BC57BA008BEF1C /* NavTests.swift */; };
 		14A57CF920BC5D36008BEF1C /* nav.json in Resources */ = {isa = PBXBuildFile; fileRef = 14A57CF820BC5D36008BEF1C /* nav.json */; };
 		14A57CFC20BC61AD008BEF1C /* Nav.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A57CFB20BC61AD008BEF1C /* Nav.swift */; };
@@ -145,6 +149,11 @@
 		14595C4120C1EAF600E974EF /* EntryMainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryMainController.swift; sourceTree = "<group>"; };
 		146ECC1820B7182100D90C6F /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		148BDC2420B1D3EF00DA75E5 /* EntryDetailsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryDetailsController.swift; sourceTree = "<group>"; };
+		14966B97239BC700009B5498 /* minifeed.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = minifeed.entitlements; sourceTree = "<group>"; };
+		14966B98239BE296009B5498 /* Int+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+.swift"; sourceTree = "<group>"; };
+		14966B9A239BE313009B5498 /* UIEdgeInsets+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIEdgeInsets+.swift"; sourceTree = "<group>"; };
+		14966B9C239BE35C009B5498 /* UIAlertController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+.swift"; sourceTree = "<group>"; };
+		14966B9E239BE406009B5498 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/WebKit.framework; sourceTree = DEVELOPER_DIR; };
 		14A57CF020BC57BA008BEF1C /* NavTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavTests.swift; sourceTree = "<group>"; };
 		14A57CF820BC5D36008BEF1C /* nav.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = nav.json; sourceTree = "<group>"; };
 		14A57CFB20BC61AD008BEF1C /* Nav.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nav.swift; sourceTree = "<group>"; };
@@ -188,6 +197,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14966B9F239BE406009B5498 /* WebKit.framework in Frameworks */,
 				633EC5F00C6C7101EA47C0F3 /* Pods_minifeed.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -227,6 +237,7 @@
 				143E973F20C2982800F63417 /* Data+.swift */,
 				140C720520BDB8EF0042FA9B /* String+.swift */,
 				143E974120C29E6D00F63417 /* URLRequest+.swift */,
+				14966B98239BE296009B5498 /* Int+.swift */,
 			);
 			path = Swift;
 			sourceTree = "<group>";
@@ -245,6 +256,8 @@
 				ACFDEB02E309D07012809AE7 /* UINavigationController+.swift */,
 				ACFDE2927836F8942BAF6199 /* UIPageViewController+.swift */,
 				ACFDE514327E08DE9B9DEA93 /* UIContextualAction+.swift */,
+				14966B9A239BE313009B5498 /* UIEdgeInsets+.swift */,
+				14966B9C239BE35C009B5498 /* UIAlertController+.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -274,6 +287,7 @@
 		142BD72720A8995600E5B9FC /* minifeed */ = {
 			isa = PBXGroup;
 			children = (
+				14966B97239BC700009B5498 /* minifeed.entitlements */,
 				146ECC1720B7180A00D90C6F /* Commons */,
 				14D9931420A8C604001F3913 /* Controllers */,
 				14A57CFA20BC5E26008BEF1C /* Models */,
@@ -439,6 +453,7 @@
 		C73C1DAB7B42064F58C6B261 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				14966B9E239BE406009B5498 /* WebKit.framework */,
 				2A2AFB06693C379A92F65C0B /* Pods_minifeed.framework */,
 				6D9E60800262D9CFE7DFA068 /* Pods_minifeedTests.framework */,
 				355455ADCC22BF0A50DE925C /* Pods_minifeedUITests.framework */,
@@ -686,6 +701,7 @@
 				140C71FE20BDA0150042FA9B /* Entry.swift in Sources */,
 				143E973820C28CFB00F63417 /* EntryRepository.swift in Sources */,
 				143E974020C2982800F63417 /* Data+.swift in Sources */,
+				14966B9D239BE35C009B5498 /* UIAlertController+.swift in Sources */,
 				144B9A5A20D2D941005CD665 /* Controller.swift in Sources */,
 				143EAA0120B1D0BC00E55DDF /* HomeController.swift in Sources */,
 				14D9931820A8CC29001F3913 /* MasterController.swift in Sources */,
@@ -696,7 +712,9 @@
 				144B9A4A20D2CA6A005CD665 /* SigninController.swift in Sources */,
 				14D98DAE20B8814A00868F01 /* UITableView+.swift in Sources */,
 				148BDC2520B1D3EF00DA75E5 /* EntryDetailsController.swift in Sources */,
+				14966B9B239BE313009B5498 /* UIEdgeInsets+.swift in Sources */,
 				1405F0F220C0596E0071E5B8 /* UIView+.swift in Sources */,
+				14966B99239BE296009B5498 /* Int+.swift in Sources */,
 				14D98DAC20B8785600868F01 /* Helpers.swift in Sources */,
 				14333BEF20BDE86F0007DD66 /* Flash.swift in Sources */,
 				143E974220C29E6D00F63417 /* URLRequest+.swift in Sources */,
@@ -829,7 +847,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -883,7 +901,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -898,8 +916,11 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = minifeed/minifeed.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_TEAM = PSQ946JWK7;
 				INFOPLIST_FILE = minifeed/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -910,6 +931,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.agilidee.minifeed;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -921,8 +943,11 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = minifeed/minifeed.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_TEAM = PSQ946JWK7;
 				INFOPLIST_FILE = minifeed/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -933,6 +958,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.agilidee.minifeed;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

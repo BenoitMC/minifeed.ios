@@ -10,12 +10,12 @@ target "minifeed" do
   # Pods for minifeed
   pod "Alamofire"
   pod "SwiftyJSON"
-  pod "SwifterSwift"
+  # pod "SwifterSwift"
   pod "SnapKit"
   pod "SVProgressHUD"
-  pod "IQKeyboardManagerSwift"
+  # pod "IQKeyboardManagerSwift"
   pod "RxSwift"
-  pod "RxCocoa"
+  # pod "RxCocoa"
   pod "Bugsnag"
 
   target "minifeedTests" do

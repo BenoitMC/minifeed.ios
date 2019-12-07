@@ -1,7 +1,6 @@
 import Foundation
 import UIKit
 import SnapKit
-import SwifterSwift
 import RxSwift
 
 class HomeController : Controller {

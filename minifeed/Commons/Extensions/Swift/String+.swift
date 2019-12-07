@@ -1,7 +1,10 @@
 import Foundation
-import SwifterSwift
 
 extension String {
+  var trimmed: String {
+    return trimmingCharacters(in: .whitespacesAndNewlines)
+  }
+
   var isBlank : Bool {
     return trimmed == ""
   }
@@ -12,5 +15,13 @@ extension String {
 
   var presence : String? {
     return isPresent ? self : nil
+  }
+
+  var url: URL? {
+    return URL(string: self)
+  }
+
+  var urlDecoded: String {
+    return removingPercentEncoding ?? self
   }
 }

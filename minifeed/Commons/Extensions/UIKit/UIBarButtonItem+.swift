@@ -21,4 +21,9 @@ extension UIBarButtonItem {
       $0.width = width
     }
   }
+
+  func addTargetForAction(_ target: AnyObject, action: Selector) {
+    self.target = target
+    self.action = action
+  }
 }

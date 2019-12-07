@@ -1,7 +1,6 @@
 import Foundation
 import UIKit
 import SnapKit
-import SwifterSwift
 
 class SigninController : Controller {
   override init() {
