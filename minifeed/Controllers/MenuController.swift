@@ -23,6 +23,10 @@ class MenuController : Controller {
     $0.textLabel?.text = t("menu.add_bookmark")
   }
 
+  let versionCell = MenuCell().do {
+    $0.textLabel?.text = t("menu.version", ["version": Utils.appVersion])
+  }
+
   let signoutCell = MenuCell().do {
     $0.imageView?.image = UIImage.find("signout").filled(withColor: .systemRed)
     $0.textLabel?.text = t("menu.sign_out")
@@ -32,6 +36,7 @@ class MenuController : Controller {
   lazy var cells = [
     [addBookmarkCell],
     [signoutCell],
+    [versionCell],
   ]
 
   private func makeViews() {

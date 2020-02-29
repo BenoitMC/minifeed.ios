@@ -16,6 +16,7 @@
 "menu.title" = "Menu";
 "menu.add_bookmark" = "Add a bookmark";
 "menu.sign_out" = "Sign out";
+"menu.version" = "Version: {version}";
 
 "add_bookmark.title" = "Add a bookmark";
 "add_bookmark.url" = "URL";

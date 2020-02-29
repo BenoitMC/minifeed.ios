@@ -70,6 +70,7 @@
 		ACFDEA801686CE46EA4BC0A3 /* UIPageViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFDE2927836F8942BAF6199 /* UIPageViewController+.swift */; };
 		ACFDEB3DDDCD739BAC50632F /* UINavigationController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFDEB02E309D07012809AE7 /* UINavigationController+.swift */; };
 		ACFDEB70BA976B903121F7B8 /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFDEB04FC4DB38DB23804E4 /* UIButton+.swift */; };
+		ACFDEDB6C205DB90898AC66B /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFDEDAF2B12740BF59DD745 /* Utils.swift */; };
 		ACFDEF2B1520299C65A124D0 /* UIBarButtonItem+.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFDE12C9120A3BA9A33F9D4 /* UIBarButtonItem+.swift */; };
 /* End PBXBuildFile section */
 
@@ -177,6 +178,7 @@
 		ACFDEB04FC4DB38DB23804E4 /* UIButton+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+.swift"; sourceTree = "<group>"; };
 		ACFDEB8B7876CBFD9BBEE277 /* UITextField+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
 		ACFDED537AFAD15C770186C4 /* AddBookmarkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddBookmarkController.swift; sourceTree = "<group>"; };
+		ACFDEDAF2B12740BF59DD745 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		ACFDEED4D8BB7A2CAD464FFE /* MenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
 		ACFDEF32AAD7996675498931 /* EntryCreateRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryCreateRepository.swift; sourceTree = "<group>"; };
 		ACFDEFF56D1F57D17EE5E44B /* Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
@@ -337,6 +339,7 @@
 				14D98DAB20B8785600868F01 /* Helpers.swift */,
 				144B9A4B20D2CC3A005CD665 /* Preferences.swift */,
 				ACFDEFF56D1F57D17EE5E44B /* Style.swift */,
+				ACFDEDAF2B12740BF59DD745 /* Utils.swift */,
 			);
 			path = Commons;
 			sourceTree = "<group>";
@@ -725,6 +728,7 @@
 				ACFDE9F17ADF19F85F1EDDE8 /* MenuController.swift in Sources */,
 				ACFDE59442E930885FC6681D /* AddBookmarkController.swift in Sources */,
 				ACFDE7B65472B2E6F6F9D53F /* EntryCreateRepository.swift in Sources */,
+				ACFDEDB6C205DB90898AC66B /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
