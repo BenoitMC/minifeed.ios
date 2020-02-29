@@ -27,12 +27,12 @@ class ApiRequest {
     if path.starts(with: "http") {
       self.url = URL(string: path)!
     } else {
-      self.url = URL(string: ApiRequest.baseUrl)!.appendingPathComponent(path)
+      self.url = URL(string: ApiRequest.baseUrl.removingSuffix("/"))!.appendingPathComponent(path)
     }
 
     self.params   = params
     self.headers  = headers ?? ApiRequest.defaultHeaders
-    self.encoding = encoding ?? URLEncoding.methodDependent
+    self.encoding = encoding ?? URLEncoding.default
   }
 
   static func get(_ url: String, _ params: Params? = nil, _ headers: Headers? = nil) -> Self {
@@ -118,7 +118,7 @@ class ApiRequest {
   }
 
   func perform() {
-    Alamofire
+    AF
       .request(url, method: method, parameters: params, encoding: encoding, headers: headers)
       .responseString { rawResponse in
         let response = ApiResponse(rawResponse)
@@ -128,7 +128,7 @@ class ApiRequest {
 }
 
 class ApiResponse {
-  typealias RawResponse = Alamofire.DataResponse<String>
+  typealias RawResponse = Alamofire.AFDataResponse<String>
 
   private let rawResponse : RawResponse
 
