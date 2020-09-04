@@ -22,7 +22,10 @@ enum AddBookmarkController  {
         .perform()
     })
 
-    alert.addTextField(placeholder: t("add_bookmark.url"), editingChangedTarget: nil, editingChangedSelector: nil)
+    var text: String?
+    if UIPasteboard.general.string?.starts(with: "http") ?? false { text = UIPasteboard.general.string }
+    alert.addTextField(text: text, placeholder: t("add_bookmark.url"), editingChangedTarget: nil, editingChangedSelector: nil)
+    alert.textFields?.first?.clearButtonMode = .always
 
     return alert
   }
