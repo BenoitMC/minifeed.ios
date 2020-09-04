@@ -10,7 +10,7 @@ target "minifeed" do
   # Pods for minifeed
   pod "Alamofire"
   pod "SwiftyJSON"
-  pod "SwifterSwift"
+  pod "SwifterSwift", "5.1.0"
   pod "SnapKit"
   pod "SVProgressHUD"
   pod "IQKeyboardManagerSwift"
