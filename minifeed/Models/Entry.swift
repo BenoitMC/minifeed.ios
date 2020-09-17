@@ -58,6 +58,12 @@ class Entry : Model {
           iframe {
             max-width: 100% !important;
           }
+          a {
+            display: inline-block;
+            max-width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
         </style>
       </head>
       <body>
