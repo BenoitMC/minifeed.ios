@@ -41,6 +41,9 @@ class Entry : Model {
         <meta charset="utf-8">
         <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0" />
         <style>
+          :root {
+            color-scheme: light dark;
+          }
           html, body {
             margin: 0;
             padding: 0;
