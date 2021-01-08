@@ -38,7 +38,7 @@ class EntriesListController: Controller {
 
   private let searchController = UISearchController(searchResultsController: nil).do {
     $0.hidesNavigationBarDuringPresentation = false
-    $0.dimsBackgroundDuringPresentation = false
+    $0.obscuresBackgroundDuringPresentation = false
   }
 
   private var searchBar: UISearchBar { return searchController.searchBar }
