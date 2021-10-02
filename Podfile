@@ -17,13 +17,4 @@ target "minifeed" do
   pod "RxSwift"
   pod "RxCocoa"
   pod "Bugsnag"
-
-  target "minifeedTests" do
-    inherit! :search_paths
-    pod "Mockingjay"
-  end
-
-  target "minifeedUITests" do
-    inherit! :search_paths
-  end
 end
