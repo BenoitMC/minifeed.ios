@@ -85,6 +85,7 @@ class SigninController : Controller {
       let email = email.text?.trimmed.presence,
       let password = password.text?.trimmed.presence
     else {
+      alert(t("signin.missing_info"))
       return
     }
 

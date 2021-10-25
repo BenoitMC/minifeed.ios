@@ -1,13 +1,13 @@
 "app_name" = "Minifeed";
 
-"alert.ok"      = "OK";
-"alert.cancel"  = "Cancel";
+"alert.ok" = "OK";
+"alert.cancel" = "Cancel";
 "alert.confirm" = "Confirm";
 
 "home.feeds" = "Feeds";
 
-"entry_filter_types.all"     = "All";
-"entry_filter_types.unread"  = "Unread";
+"entry_filter_types.all" = "All";
+"entry_filter_types.unread" = "Unread";
 "entry_filter_types.starred" = "Starred";
 
 "entries_list.mark_all_as_read.confirm" = "Mark all as read ?";
@@ -25,8 +25,9 @@
 
 "sign_out.confirm" = "Do you really want to sign out ?";
 
-"signin.url"         = "URL";
-"signin.email"       = "Email";
-"signin.password"    = "Password";
-"signin.submit"      = "Sign in";
+"signin.url" = "URL";
+"signin.email" = "Email";
+"signin.password" = "Password";
+"signin.submit" = "Sign in";
+"signin.missing_info" = "Please fill in all the fields.";
 "signin.invalid_url" = "URL is invalid.";
