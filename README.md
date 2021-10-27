@@ -1,6 +1,8 @@
 # Minifeed iOS
 
-iOS app for [Minifeed](https://github.com/BenoitMC/minifeed.rails).
+iOS app for [Minifeed Server](https://github.com/BenoitMC/minifeed.rails).
+
+[Download on the App Store](https://apps.apple.com/app/id1588565517).
 
 -----
 
