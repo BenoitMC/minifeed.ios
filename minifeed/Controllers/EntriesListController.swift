@@ -32,7 +32,7 @@ class EntriesListController: Controller {
   private let markAllAsReadButton = UIBarButtonItem(
     image: UIImage.find("mark-all-as-read"),
     style: .plain,
-    target: self,
+    target: EntriesListController.self,
     action: #selector(tapOnMarkAllAsRead)
   )
 

@@ -1,14 +1,14 @@
 PODS:
-  - Alamofire (5.4.4)
-  - Bugsnag (6.13.0)
-  - IQKeyboardManagerSwift (6.5.6)
-  - RxCocoa (6.2.0):
-    - RxRelay (= 6.2.0)
-    - RxSwift (= 6.2.0)
-  - RxRelay (6.2.0):
-    - RxSwift (= 6.2.0)
-  - RxSwift (6.2.0)
-  - SnapKit (5.0.1)
+  - Alamofire (5.6.4)
+  - Bugsnag (6.26.0)
+  - IQKeyboardManagerSwift (6.5.11)
+  - RxCocoa (6.5.0):
+    - RxRelay (= 6.5.0)
+    - RxSwift (= 6.5.0)
+  - RxRelay (6.5.0):
+    - RxSwift (= 6.5.0)
+  - RxSwift (6.5.0)
+  - SnapKit (5.6.0)
   - SVProgressHUD (2.2.5)
   - SwifterSwift (5.1.0):
     - SwifterSwift/AppKit (= 5.1.0)
@@ -58,17 +58,17 @@ SPEC REPOS:
     - SwiftyJSON
 
 SPEC CHECKSUMS:
-  Alamofire: f3b09a368f1582ab751b3fff5460276e0d2cf5c9
-  Bugsnag: 8711a0030fe1d33baf24ec0ffc99a3183c05fcb9
-  IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
-  RxCocoa: 4baf94bb35f2c0ab31bc0cb9f1900155f646ba42
-  RxRelay: e72dbfd157807478401ef1982e1c61c945c94b2f
-  RxSwift: d356ab7bee873611322f134c5f9ef379fa183d8f
-  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+  Alamofire: 4e95d97098eacb88856099c4fc79b526a299e48c
+  Bugsnag: dc4f341f144f4ea80494ba9cfd95d5c14b6b3580
+  IQKeyboardManagerSwift: c7955c0bdbf7b2eb29bb7daaa44e3d90f55a9a85
+  RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
+  RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
+  RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
+  SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwifterSwift: a9e8e144832638c2850b43da5feaf9598c6ad65b
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
 
 PODFILE CHECKSUM: d1dabf8d088aa75eaa179975567999508d785415
 
-COCOAPODS: 1.11.2
+COCOAPODS: 1.12.0
