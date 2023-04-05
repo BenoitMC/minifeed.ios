@@ -5,6 +5,7 @@ class MasterController : UISplitViewController {
   init () {
     super.init(nibName: nil, bundle: nil)
 
+    preferredDisplayMode = .oneBesideSecondary
     loadPreferences()
     navController.setViewControllers([homeController])
     hideDetailControllerIfNeeded()
