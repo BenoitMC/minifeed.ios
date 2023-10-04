@@ -26,12 +26,12 @@ class MasterController : UISplitViewController {
 
   private let homeController = HomeController()
 
-  private let blankViewController = UIViewController().do {
-    $0.view.backgroundColor = .white
-  }
-
   func hideDetailControllerIfNeeded() {
     if UIDevice.current.userInterfaceIdiom == .pad {
+      let blankViewController = UIViewController().do {
+        $0.view.backgroundColor = .white
+      }
+      
       viewControllers = [navController, blankViewController]
     } else {
       viewControllers = [navController]
