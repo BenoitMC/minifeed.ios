@@ -1,5 +1,7 @@
+VERSION = "26.0"
+
 # Uncomment the next line to define a global platform for your project
-platform :ios, "12.0"
+platform :ios, VERSION
 
 inhibit_all_warnings!
 
@@ -23,7 +25,7 @@ post_install do |installer|
   installer.generated_projects.each do |project|
     project.targets.each do |target|
       target.build_configurations.each do |config|
-        config.build_settings["IPHONEOS_DEPLOYMENT_TARGET"] = "12.0"
+        config.build_settings["IPHONEOS_DEPLOYMENT_TARGET"] = VERSION
        end
     end
   end
