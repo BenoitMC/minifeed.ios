@@ -49,7 +49,6 @@
 		ACFDE98ABB5D35FBEACA3625 /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFDEB8B7876CBFD9BBEE277 /* UITextField+.swift */; };
 		ACFDE98EEDE94EB9DFC20F6B /* UIContextualAction+.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFDE514327E08DE9B9DEA93 /* UIContextualAction+.swift */; };
 		ACFDE9F17ADF19F85F1EDDE8 /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFDEED4D8BB7A2CAD464FFE /* MenuController.swift */; };
-		ACFDEA5B52C77903294BE6E8 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFDEFF56D1F57D17EE5E44B /* Style.swift */; };
 		ACFDEA801686CE46EA4BC0A3 /* UIPageViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFDE2927836F8942BAF6199 /* UIPageViewController+.swift */; };
 		ACFDEB3DDDCD739BAC50632F /* UINavigationController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFDEB02E309D07012809AE7 /* UINavigationController+.swift */; };
 		ACFDEB70BA976B903121F7B8 /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFDEB04FC4DB38DB23804E4 /* UIButton+.swift */; };
@@ -128,7 +127,6 @@
 		ACFDEDAF2B12740BF59DD745 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		ACFDEED4D8BB7A2CAD464FFE /* MenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
 		ACFDEF32AAD7996675498931 /* EntryCreateRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryCreateRepository.swift; sourceTree = "<group>"; };
-		ACFDEFF56D1F57D17EE5E44B /* Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		FF089672452A8D9E4C674073 /* Pods-minifeedUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-minifeedUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-minifeedUITests/Pods-minifeedUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -235,7 +233,6 @@
 				14333BEE20BDE86F0007DD66 /* Flash.swift */,
 				14D98DAB20B8785600868F01 /* Helpers.swift */,
 				144B9A4B20D2CC3A005CD665 /* Preferences.swift */,
-				ACFDEFF56D1F57D17EE5E44B /* Style.swift */,
 				ACFDEDAF2B12740BF59DD745 /* Utils.swift */,
 			);
 			path = Commons;
@@ -401,13 +398,9 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-minifeed/Pods-minifeed-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			inputPaths = (
-			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-minifeed/Pods-minifeed-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -458,7 +451,6 @@
 				ACFDEF2B1520299C65A124D0 /* UIBarButtonItem+.swift in Sources */,
 				ACFDEB3DDDCD739BAC50632F /* UINavigationController+.swift in Sources */,
 				ACFDEA801686CE46EA4BC0A3 /* UIPageViewController+.swift in Sources */,
-				ACFDEA5B52C77903294BE6E8 /* Style.swift in Sources */,
 				ACFDE896AEE709AC89739765 /* FeedsListController.swift in Sources */,
 				ACFDE98EEDE94EB9DFC20F6B /* UIContextualAction+.swift in Sources */,
 				ACFDE9F17ADF19F85F1EDDE8 /* MenuController.swift in Sources */,

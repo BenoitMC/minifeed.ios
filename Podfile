@@ -16,6 +16,7 @@ target "minifeed" do
   pod "SnapKit"
   pod "SVProgressHUD"
   pod "IQKeyboardManagerSwift"
+  pod "IQKeyboardToolbarManager"
   pod "RxSwift"
   pod "RxCocoa"
   pod "Bugsnag"

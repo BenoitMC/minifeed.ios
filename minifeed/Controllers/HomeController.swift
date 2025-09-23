@@ -18,7 +18,7 @@ class HomeController : Controller {
 
   required init?(coder: NSCoder) { fatalError() }
 
-  private let tableView = UITableView(style: .grouped)
+  private let tableView = UITableView(style: .insetGrouped)
   private let refreshControl = UIRefreshControl()
   private let menuButton = UIBarButtonItem(image: "menu")
 

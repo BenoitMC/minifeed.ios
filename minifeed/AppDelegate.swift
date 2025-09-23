@@ -1,5 +1,6 @@
 import UIKit
 import IQKeyboardManagerSwift
+import IQKeyboardToolbarManager
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -9,10 +10,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // Override point for customization after application launch.
     Config.load()
     IQKeyboardManager.shared.isEnabled = true
+    IQKeyboardToolbarManager.shared.isEnabled = true
     Flash.setup()
-    Style.applyCommons()
 
-    window = UIWindow(frame: UIScreen.main.bounds)
+    let windowScene = UIApplication.shared.connectedScenes.first as! UIWindowScene
+    window = UIWindow(windowScene: windowScene)
     window!.rootViewController = MasterController()
     window!.makeKeyAndVisible()
 

@@ -24,7 +24,6 @@ class EntryMainController : Controller {
 
   required init?(coder: NSCoder) { fatalError() }
 
-  private let toolbar             = UIToolbar()
   private let previousButton      = UIBarButtonItem(image: "previous")
   private let toggleReadButton    = UIBarButtonItem(image: "read")
   private let toggleStarredButton = UIBarButtonItem(image: "unstarred")
@@ -34,40 +33,30 @@ class EntryMainController : Controller {
   private let nextButton          = UIBarButtonItem(image: "next")
 
   private func makeViews() {
-    view.backgroundColor = .white
+    view.backgroundColor = .systemBackground
     view.addSubview(pageController.view)
     addChild(pageController)
     pageController.didMove(toParent: self)
 
-    view.addSubview(toolbar)
-
-    toolbar.items = [
-      UIBarButtonItem.fixedSpace(-12),
-      previousButton,
-      UIBarButtonItem.flexibleSpace(),
+    toolbarItems = [
       toggleReadButton,
-      UIBarButtonItem.flexibleSpace(),
       toggleStarredButton,
-      UIBarButtonItem.flexibleSpace(),
       readerButton,
-      UIBarButtonItem.flexibleSpace(),
       safariButton,
-      UIBarButtonItem.flexibleSpace(),
       browserButton,
-      UIBarButtonItem.flexibleSpace(),
-      nextButton,
-      UIBarButtonItem.fixedSpace(-12)
     ]
+
+    if UIDevice.current.userInterfaceIdiom == .pad || UIDevice.current.orientation.isLandscape {
+      toolbarItems = [previousButton] + toolbarItems! + [nextButton]
+    }
+
+    toolbarItems!.forEach({ $0.target = self })
   }
 
   private func makeConstraints() {
     pageController.view.snp.makeConstraints {
       $0.top.left.right.equalTo(view!.safeAreaLayoutGuide)
-    }
-
-    toolbar.snp.makeConstraints {
-      $0.top.equalTo(pageController.view.snp.bottom)
-      $0.bottom.left.right.equalTo(view!.safeAreaLayoutGuide)
+      $0.bottom.equalToSuperview()
     }
   }
 
@@ -83,6 +72,7 @@ class EntryMainController : Controller {
 
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
+    navigationController?.setToolbarHidden(false, animated: true)
 
     updateViews()
     markAsReadIfNeeded()
@@ -90,7 +80,6 @@ class EntryMainController : Controller {
 
   private lazy var pageController : UIPageViewController = {
     let controller = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
-    controller.view.backgroundColor = .white
     controller.dataSource = self
     controller.delegate   = self
     return controller

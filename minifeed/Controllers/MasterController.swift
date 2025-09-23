@@ -3,13 +3,15 @@ import UIKit
 
 class MasterController : UISplitViewController {
   init () {
-    super.init(nibName: nil, bundle: nil)
+    super.init(style: .doubleColumn)
 
     preferredDisplayMode = .oneBesideSecondary
     loadPreferences()
     navController.setViewControllers([homeController])
     hideDetailControllerIfNeeded()
     homeController.reloadData()
+    setViewController(navController, for: .primary)
+    preferredPrimaryColumnWidthFraction = 0.33
   }
 
   required init?(coder: NSCoder) { fatalError() }
@@ -28,13 +30,8 @@ class MasterController : UISplitViewController {
 
   func hideDetailControllerIfNeeded() {
     if UIDevice.current.userInterfaceIdiom == .pad {
-      let blankViewController = UIViewController().do {
-        $0.view.backgroundColor = .white
-      }
-      
-      viewControllers = [navController, blankViewController]
-    } else {
-      viewControllers = [navController]
+      let blankViewController = UIViewController()
+      setViewController(blankViewController, for: .secondary)
     }
   }
 

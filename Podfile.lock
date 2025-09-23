@@ -76,6 +76,7 @@ DEPENDENCIES:
   - Alamofire
   - Bugsnag
   - IQKeyboardManagerSwift
+  - IQKeyboardToolbarManager
   - RxCocoa
   - RxSwift
   - SnapKit
@@ -122,6 +123,6 @@ SPEC CHECKSUMS:
   SwifterSwift: a9e8e144832638c2850b43da5feaf9598c6ad65b
   SwiftyJSON: f5b1bf1cd8dd53cd25887ac0eabcfd92301c6a5a
 
-PODFILE CHECKSUM: c188e7441ba061d1d48a1bce4da0d9ef480246f2
+PODFILE CHECKSUM: b8b27d8fab63dcfdf590d44a44e7c66d5d140c9e
 
 COCOAPODS: 1.16.2

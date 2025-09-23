@@ -25,7 +25,7 @@ class EntriesListController: Controller {
 
   required init?(coder: NSCoder) { fatalError() }
 
-  private let tableView      = UITableView()
+  private let tableView      = UITableView(style: .insetGrouped)
   private let typesSegments  = UISegmentedControl(items: EntryFilterTypes.names)
   private let refreshControl = UIRefreshControl()
 
@@ -50,8 +50,7 @@ class EntriesListController: Controller {
     tableView.addSubview(refreshControl)
     navigationItem.searchController = searchController
     navigationItem.hidesSearchBarWhenScrolling = true
-    tableView.separatorInset = UIEdgeInsets(inset: 28)
-    extendedLayoutIncludesOpaqueBars = true
+    tableView.separatorInset = UIEdgeInsets(inset: 24)
   }
 
   private func makeConstraints() {
@@ -211,7 +210,7 @@ class EntryCell : UITableViewCell {
     unreadIndicator.snp.makeConstraints {
       $0.size.equalTo(12)
       $0.centerY.equalTo(textLabel!.snp.centerY)
-      $0.right.equalTo(textLabel!.snp.left).offset(-7)
+      $0.right.equalTo(textLabel!.snp.left).offset(-5)
     }
   }
 }

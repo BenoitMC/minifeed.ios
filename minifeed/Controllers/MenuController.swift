@@ -16,7 +16,7 @@ class MenuController : Controller {
     splitViewController as! MasterController
   }
 
-  let tableView = UITableView(style: .grouped)
+  let tableView = UITableView(style: .insetGrouped)
 
   let addBookmarkCell = MenuCell().do {
     $0.imageView?.image = UIImage.find("nav-starred").filled(withColor: .iosBlue)

@@ -22,7 +22,7 @@ class FeedsListController : Controller {
 
   required init?(coder: NSCoder) { fatalError() }
 
-  private let tableView = UITableView()
+  private let tableView = UITableView(style: .insetGrouped)
 
   private func makeViews() {
     view.addSubview(tableView)

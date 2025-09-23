@@ -37,14 +37,9 @@ class EntryDetailsController : Controller {
     $0.textColor = .gray
   }
 
-  let webview = WKWebView().do {
-    $0.backgroundColor = .clear
-    $0.scrollView.backgroundColor = .clear
-    $0.isOpaque = false
-  }
+  let webview = WKWebView()
 
   private func makeViews() {
-    view.backgroundColor = .systemBackground
     view.addSubview(stack)
     stack.addArrangedSubview(label)
     stack.addArrangedSubview(infos)
